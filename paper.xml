@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/css" href="resources/css/paper.css"?>
 <article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0">
 	<info>
-		<title><emphasis role="bold">Generating documents from XQuery annotations</emphasis></title>
+		<title><emphasis role="bold">Documents from XQuery annotations</emphasis></title>
 		<author>
 			<personname>Andy Bunce</personname>
 			<email>bunce.andy@gmail.com</email>
@@ -63,7 +63,7 @@
 		<title>A survey of the use of annotations in XQuery</title>
 		<para>The following sections show popular applications of annotations</para>
 		<section>
-			<title>Standard</title>
+			<title>In the standards</title>
 			<para>The XQuery 3.1 and XQuery 3.0  update define only three annotations:</para>
 			<para><code>%private</code>
 				<code>%public</code><code>%updating</code>
@@ -88,8 +88,11 @@
 		<para>stuff</para>
 	</section>
 	<section>
-		<title>The xqDoc standard</title>
-		<para><?oxy-placeholder content="You can use not only paragraphs, but also programlistings, examples, lists, tables, etc."?></para>
+		<title>The xqDoc format</title>
+		<para>Since the summer of 2002, Darin McBeath has been developing applications in XQuery. As
+			these XQuery applications became more complex, it became obvious that a seamless tool
+			was needed to assist with documenting his ever growing and complex XQuery library
+			modules and main modules. </para>
 	</section>
 	<section>
 		<title>xqDoc implementations</title>
@@ -130,6 +133,26 @@
 			<bibliomisc><link
 					xl:href="http://exquery.github.io/exquery/exquery-restxq-specification/restxq-1.0-specification.html"
 				/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev> JAX-RS API</abbrev>
+			<author>
+				<personname><surname>Bucek</surname>
+					<firstname>Pavel</firstname></personname>
+			</author>: <title>JSR 370: JavaTM API for RESTful Web Services (JAX-RS 2.1)
+				Specification</title>. <date>22 Aug 2017</date>, <orgname>Java Community Process
+				(JCP)</orgname>
+			<bibliomisc><link><link xmlns:xlink="http://www.w3.org/1999/xlink"
+						xlink:href="https://jcp.org/en/jsr/detail?id=370"
+						>https://jcp.org/en/jsr/detail?id=370</link></link></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>XQDOC</abbrev>
+			<author>
+				<personname><surname>McBeath</surname>
+					<firstname>Darrin</firstname></personname>
+			</author>: <title>xqDoc website</title>. <date>13 Jan 2014</date>, <orgname><link
+					xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://xqdoc.org"
+					>http://xqdoc.org</link></orgname>
+			<bibliomisc><link><link xmlns:xlink="http://www.w3.org/1999/xlink"
+						xlink:href="http://xqdoc.org/index.html"
+					>http://xqdoc.org/index.html</link></link></bibliomisc></bibliomixed>
 	</bibliography>
 
 </article>
