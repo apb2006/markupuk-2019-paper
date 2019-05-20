@@ -142,18 +142,29 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 		<title>xqDoc implementations</title>
 		<para>xqDoc implementations have two main components:<orderedlist>
 				<listitem>
-					<para>A means to parse the source code</para>
+					<para>A component to parse the source code</para>
 				</listitem>
 				<listitem>
 					<para>Optionally a means to render these into human readable formats such as
 						html</para>
 					<para>list here</para>
+					<para>blah</para>
 				</listitem>
 			</orderedlist></para>
 	</section>
 
 	<section>
 		<title>Introducing xqDocA</title>
+		<para>The model</para>
+		<para><inlinemediaobject>
+				<imageobject>
+					<imagedata fileref="images/model.svg"/>
+				</imageobject>
+			</inlinemediaobject><figure>
+				<info>
+					<title>Data Model</title>
+				</info>
+			</figure></para>
 		<para><inlinemediaobject>
 				<imageobject>
 					<imagedata fileref="xqDocA.png" width="100%" scalefit="1"/>
