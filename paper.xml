@@ -49,33 +49,87 @@
 		<para><?oxy-placeholder content="Introductory section goes here…"?></para>
 		<para><?oxy-placeholder content="You can use not only paragraphs, but also programlistings, examples, lists, tables, etc."?></para>
 	</section>
+	<section>
+		<title>What are annotations?</title>
+		<para>The XQuery 3.1 <citation/>specification defines </para>
+		<blockquote>
+			<para>XQuery uses annotations to declare properties associated with functions (inline or
+				declared in the prolog) and variables. For instance, a function may be declared
+					<code>%public</code> or <code>%private</code>.  </para>
+			<para>Annotations are <code>(QName, value)</code> pairs. </para>
+		</blockquote>
+	</section>
+	<section>
+		<title>A survey of the use of annotations in XQuery</title>
+		<para>The following sections show popular applications of annotations</para>
+		<section>
+			<title>Standard</title>
+			<para>The XQuery 3.1 and XQuery 3.0  update define only three annotations:</para>
+			<para><code>%private</code>
+				<code>%public</code><code>%updating</code>
+			</para>
+		</section>
+		<section>
+			<title>RestXQ</title>
+			<para>%rest:??? (ExistDb,Marklogic,BaseX)</para>
+		</section>
+		<section>
+			<title>Unit testing</title>
+			<para>%test:??? Unit testing (ExistDb,basex)</para>
+		</section>
+		<section>
+			<title>Others</title>
+			<para>%perm (basex)</para>
+			<para>%ws web sockets&amp;nbsp;(basex) </para>
+		</section>
+	</section>
+	<section>
+		<title>RESTxq annotations</title>
+		<para>stuff</para>
+	</section>
+	<section>
+		<title>The xqDoc standard</title>
+		<para><?oxy-placeholder content="You can use not only paragraphs, but also programlistings, examples, lists, tables, etc."?></para>
+	</section>
+	<section>
+		<title>xqDoc implementations</title>
+		<para><?oxy-placeholder content="You can use not only paragraphs, but also programlistings, examples, lists, tables, etc."?></para>
+	</section>
 
 	<section>
-		<title><?oxy-placeholder content="Section title"?></title>
-		<para><?oxy-placeholder content="You can use not only paragraphs, but also programlistings, examples, lists, tables, etc."?></para>
+		<title>Introducing xqDocA</title>
+		<para><inlinemediaobject>
+				<imageobject>
+					<imagedata fileref="xqDocA.png"/>
+				</imageobject>
+			</inlinemediaobject></para>
 	</section>
 	
 	<section>
 		<title>Conclusion</title>
-		<para><?oxy-placeholder content="You can use not only paragraphs, but also programlistings, examples, lists, tables, etc."?></para>
+		<para>@TODO</para>
 
 	</section>
 
 	<bibliography xml:id="references">
-		<bibliomixed> <abbrev>DB5SPEC</abbrev> <author>
-			<personname><surname>Walsh</surname><firstname>Norman</firstname></personname>
-			</author>: <title>The DocBook Schema</title>. Working Draft 5.0a1, <date>29 June
-			2005</date>, <orgname>OASIS</orgname>. <bibliomisc><link
-			xl:href="http://www.docbook.org/specs/wd-docbook-docbook-5.0a1.html"/></bibliomisc> </bibliomixed>
-		
-		<bibliomixed> <abbrev><?oxy-placeholder content="Abreviation for references"?></abbrev> <author>
-			<personname><surname><?oxy-placeholder content="Surname"?></surname>
-				<firstname><?oxy-placeholder content="Firstname"?></firstname></personname>
-			</author>: <title><?oxy-placeholder content="Reference title"?></title>.
-			<date><?oxy-placeholder content="DD Month Year"?></date>,
-			<orgname><?oxy-placeholder content="Organization name"?></orgname>
-			<bibliomisc><link/></bibliomisc></bibliomixed>
-		
+		<bibliomixed><abbrev>XQUERY31SPEC</abbrev>
+			<author>
+				<personname><surname>Speigel</surname>
+					<firstname>Josh</firstname></personname>
+			</author>: <title>XQuery 3.1: An XML Query Language</title>. <date>21 3 2017</date>,
+				<orgname>W3C</orgname>
+			<bibliomisc><link xl:href="https://www.w3.org/TR/2017/REC-xquery-31-20170321/"
+				/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>RESTXQ</abbrev>
+			<author>
+				<personname><surname>Retter</surname>
+					<firstname>Adam</firstname></personname>
+			</author>: <title>RESTXQ 1.0: RESTful Annotations for XQuery</title>. <date>21 March
+				2016</date>, <orgname><link xmlns:xlink="http://www.w3.org/1999/xlink"
+					xlink:href="http://exquery.org/">http://exquery.org/</link></orgname>
+			<bibliomisc><link
+					xl:href="http://exquery.github.io/exquery/exquery-restxq-specification/restxq-1.0-specification.html"
+				/></bibliomisc></bibliomixed>
 	</bibliography>
 
 </article>
