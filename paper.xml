@@ -51,36 +51,73 @@
 	</section>
 	<section>
 		<title>What are annotations?</title>
-		<para>The XQuery 3.1 <citation/>specification defines </para>
+		<para>Annotations are defined for many languages Java has <link
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				xlink:href="https://www.jcp.org/en/jsr/detail?id=175#2">JSR 175: A Metadata Facility
+				for the JavaTM Programming Language</link>.</para>
+		<para>The XQuery 3.1 <citation/>specification states: </para>
 		<blockquote>
 			<para>XQuery uses annotations to declare properties associated with functions (inline or
 				declared in the prolog) and variables. For instance, a function may be declared
 					<code>%public</code> or <code>%private</code>.  </para>
 			<para>Annotations are <code>(QName, value)</code> pairs. </para>
 		</blockquote>
+		<para/>
 	</section>
 	<section>
 		<title>A survey of the use of annotations in XQuery</title>
 		<para>The following sections show popular applications of annotations</para>
 		<section>
-			<title>In the standards</title>
-			<para>The XQuery 3.1 and XQuery 3.0  update define only three annotations:</para>
+			<title>Built-in annotations</title>
+			<para>The XQuery 3.1 and XQuery 3.0  update standards define only three
+				annotations:</para>
 			<para><code>%private</code>
 				<code>%public</code><code>%updating</code>
 			</para>
 		</section>
 		<section>
 			<title>RestXQ</title>
-			<para>%rest:??? (ExistDb,Marklogic,BaseX)</para>
+			<para>In ?? Adam Retter presented.  It is based on the popular Java standard JAX-RS and
+				has been implemented by many XML database products as it provides a straight forward
+				way to wire-up XQuery code to a web services. </para>
+			<para>A simple RESTXQ
+				example<programlisting>module namespace page = 'http://basex.org/examples/web-page';
+ 
+declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
+  &lt;response>
+    &lt;title>Hello { $who }!&lt;/title>
+  &lt;/response>
+};  </programlisting></para>
+			<para>However as the application size grows it can become difficult for the developer to
+				navigate from response to implementing code. </para>
 		</section>
 		<section>
 			<title>Unit testing</title>
-			<para>%test:??? Unit testing (ExistDb,basex)</para>
+			<para>Unit testing is another popular domain for annotations. In the Java world JUnit
+				has long made use of annotations. In XQuery <itemizedlist>
+					<listitem>
+						<para>Marklogic has <link xmlns:xlink="http://www.w3.org/1999/xlink"
+								xlink:href="https://github.com/robwhitby/xray">XRAY</link></para>
+					</listitem>
+				</itemizedlist></para>
 		</section>
 		<section>
 			<title>Others</title>
-			<para>%perm (basex)</para>
-			<para>%ws web sockets&amp;nbsp;(basex) </para>
+			<para>The BaseX product has recently extended its <itemizedlist>
+					<listitem>
+						<para><code>%ws</code> To define access to <link
+								xmlns:xlink="http://www.w3.org/1999/xlink"
+								xlink:href="http://docs.basex.org/wiki/WebSockets#Annotations">Web
+								sockets</link></para>
+					</listitem>
+					<listitem>
+						<para><code>%perm</code> To define a web application permission layer</para>
+					</listitem>
+				</itemizedlist></para>
+			<para>The MarkLogic product uses annotation for <link
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xlink:href="https://docs.marklogic.com/guide/xquery/enhanced#id_94002"
+					>transaction control</link> .</para>
 		</section>
 	</section>
 	<section>
@@ -89,11 +126,13 @@
 	</section>
 	<section>
 		<title>The xqDoc format</title>
-		<para>Since the summer of 2002, Darin McBeath has been developing applications in XQuery. As
-			these XQuery applications became more complex, it became obvious that a seamless tool
-			was needed to assist with documenting his ever growing and complex XQuery library
-			modules and main modules. </para>
-		<para>The schema <inlinemediaobject>
+		<para>In 2002, Darin McBeath realised the need for a tool for generating documentation from
+			XQuery sources and created  xqDoc <biblioref/>. This defines an XML schema for recording
+			information about XQuery modules and a reference JAVA implementation. </para>
+		<para>In 2014 this schema was extended to capture XQuery annotation information. The figure
+			below highlights the addition: </para>
+		<para>
+			<inlinemediaobject>
 				<imageobject>
 					<imagedata fileref="xqdoc-schema.png"/>
 				</imageobject>
@@ -101,7 +140,16 @@
 	</section>
 	<section>
 		<title>xqDoc implementations</title>
-		<para><?oxy-placeholder content="You can use not only paragraphs, but also programlistings, examples, lists, tables, etc."?></para>
+		<para>xqDoc implementations have two main components:<orderedlist>
+				<listitem>
+					<para>A means to parse the source code</para>
+				</listitem>
+				<listitem>
+					<para>Optionally a means to render these into human readable formats such as
+						html</para>
+					<para>list here</para>
+				</listitem>
+			</orderedlist></para>
 	</section>
 
 	<section>
@@ -168,6 +216,16 @@
 			<bibliomisc><link><link xmlns:xlink="http://www.w3.org/1999/xlink"
 						xlink:href="https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html"
 						>https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html</link></link></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>MARKLOGIC9</abbrev>
+			<author>
+				<personname><surname><?oxy-placeholder content="Surname"?></surname>
+					<firstname><?oxy-placeholder content="Firstname"?></firstname></personname>
+			</author>: <title>MarkLogic 9 Product Documentation</title>.
+				<date><?oxy-placeholder content="DD Month Year"?></date>,
+				<orgname><?oxy-placeholder content="Organization name"?></orgname>
+			<bibliomisc><link><link xmlns:xlink="http://www.w3.org/1999/xlink"
+						xlink:href="https://docs.marklogic.com/guide/xquery/enhanced#id_94002"
+						>https://docs.marklogic.com/guide/xquery/enhanced#id_94002</link></link></bibliomisc></bibliomixed>
 	</bibliography>
 
 </article>
