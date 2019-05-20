@@ -134,7 +134,7 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 		<para>
 			<inlinemediaobject>
 				<imageobject>
-					<imagedata fileref="xqdoc-schema.png"/>
+					<imagedata fileref="xqdoc-schema.png" width="100%" scalefit="1"/>
 				</imageobject>
 			</inlinemediaobject></para>
 	</section>
@@ -156,7 +156,7 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 		<title>Introducing xqDocA</title>
 		<para><inlinemediaobject>
 				<imageobject>
-					<imagedata fileref="xqDocA.png"/>
+					<imagedata fileref="xqDocA.png" width="100%" scalefit="1"/>
 				</imageobject>
 			</inlinemediaobject></para>
 	</section>
