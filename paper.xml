@@ -111,7 +111,10 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 								sockets</link></para>
 					</listitem>
 					<listitem>
-						<para><code>%perm</code> To define a web application permission layer</para>
+						<para><code>%perm</code> To define a web application <link
+								xmlns:xlink="http://www.w3.org/1999/xlink"
+								xlink:href="http://docs.basex.org/wiki/Permissions">permission
+								layer</link></para>
 					</listitem>
 				</itemizedlist></para>
 			<para>The MarkLogic product uses annotation for <link
@@ -126,11 +129,32 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 	</section>
 	<section>
 		<title>The xqDoc format</title>
-		<para>In 2002, Darin McBeath realised the need for a tool for generating documentation from
-			XQuery sources and created  xqDoc <biblioref/>. This defines an XML schema for recording
-			information about XQuery modules and a reference JAVA implementation. </para>
-		<para>In 2014 this schema was extended to capture XQuery annotation information. The figure
-			below highlights the addition: </para>
+		<para>In 2002, Darin McBeath realised the need for a tool for generating documentation from XQuery
+			sources and created xqDoc <biblioref/>. This defines an XML schema for recording
+			information about XQuery modules and a reference JAVA implementation.  To get full value
+			from xqDoc the source should contain comments formatted according to certain conventions
+			in a similar fashion to Javadoc comments. See example
+			below<programlisting>(:~
+: The controller for constructing the xqDoc HTML information for
+: the specified library module. The following information for
+: each library module will be generated.
+: &lt;ul>
+: &lt;li> Module introductory information&lt;/li>
+: &lt;li> Global variables declared in this module&lt;/li>
+: &lt;li> Modules imported by this module&lt;/li>
+: &lt;li> Summary information for each function defined in the module&lt;/li>
+: &lt;li> Detailed information for each function defined in the module&lt;/li>
+: &lt;/ul>
+:
+: @param $uri the URI for the library module
+: @param $local indicates whether to build static HTML link for offline
+: viewing or dynamic links for real-time viewing.
+: @return XHTML.
+:)
+define function print-module($uri as xs:string, $local as xs:boolean) as element()* 
+</programlisting></para>
+		<para>xqDoc was written to target XQuery 1.0. In 2014 the schema was extended to capture XQuery
+			annotation information defined in  XQuery 3.0. The figure below highlights the addition: </para>
 		<para>
 			<inlinemediaobject>
 				<imageobject>
@@ -140,17 +164,34 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 	</section>
 	<section>
 		<title>xqDoc implementations</title>
-		<para>xqDoc implementations have two main components:<orderedlist>
+		<para>xqDoc implementations have three main components:<orderedlist>
 				<listitem>
-					<para>A component to parse the source code</para>
+					<para>A component to parse the XQuery source code and generate the corresponding
+						xqdoc XML</para>
 				</listitem>
 				<listitem>
-					<para>Optionally a means to render these into human readable formats such as
+					<para>A component to parse xqdoc style comments <code>(:~ … :)</code> into
+					</para>
+				</listitem>
+				<listitem>
+					<para>Optionally means to render these XML into human readable formats such as
 						html</para>
 					<para>list here</para>
 					<para>blah</para>
 				</listitem>
 			</orderedlist></para>
+		<section>
+			<title>xqdoc.org</title>
+			<para>Is written in Java and uses ANTLR 2.7 for the parsing. </para>
+		</section>
+		<section>
+			<title>ExistDb</title>
+			<para>Providesthe docs module</para>
+		</section>
+		<section>
+			<title>BaseX</title>
+			<para><?oxy-placeholder content="You can use not only paragraphs, but also programlistings, examples, lists, tables, etc."?></para>
+		</section>
 	</section>
 
 	<section>
@@ -160,11 +201,7 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 				<imageobject>
 					<imagedata fileref="images/model.svg"/>
 				</imageobject>
-			</inlinemediaobject><figure>
-				<info>
-					<title>Data Model</title>
-				</info>
-			</figure></para>
+			</inlinemediaobject></para>
 		<para><inlinemediaobject>
 				<imageobject>
 					<imagedata fileref="xqDocA.png" width="100%" scalefit="1"/>
