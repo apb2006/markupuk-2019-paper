@@ -2,25 +2,43 @@
 <?xml-stylesheet type="text/css" href="resources/css/paper.css"?>
 <article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0">
 	<info>
-		<title><?oxy-placeholder content="Your paper title"?></title>
+		<title><emphasis role="bold">Generating documents from XQuery annotations</emphasis></title>
 		<author>
-			<personname><?oxy-placeholder content="Your name"?></personname>
-			<email><?oxy-placeholder content="Your email address"?></email>
-			<uri><?oxy-placeholder content="Your website"?></uri>
+			<personname>Andy Bunce</personname>
+			<email>bunce.andy@gmail.com</email>
+			<uri><link xmlns:xlink="http://www.w3.org/1999/xlink"
+					xlink:href="https://github.com/apb2006">https://github.com/apb2006</link></uri>
 			<personblurb>
 				<para><?oxy-placeholder content="Details about you"?></para>
 			</personblurb>
 			<affiliation>
-				<jobtitle><?oxy-placeholder content="Your job title"?></jobtitle>
-				<orgname><?oxy-placeholder content="Organization name"?></orgname>
+				<jobtitle>Director</jobtitle>
+				<orgname>Quodatum Ltd</orgname>
 			</affiliation>
 		</author>
 		<keywordset>
-			<keyword><?oxy-placeholder content="keyword relevant to your paper"?></keyword>
-			<keyword><?oxy-placeholder content="keyword"?></keyword>
+			<keyword>xquery</keyword>
+			<keyword>documentation</keyword>
+			<keyword>xqdoc</keyword>
+			<keyword>annotation</keyword>
+			<keyword>restxq</keyword>
 		</keywordset>
 		<abstract>
-			<para><?oxy-placeholder content="First paragraph of your abstract."?></para>
+			<para>The paper describes an implementation of an xqDoc.org documentation generator. A focus of
+				this implementation is XQuery annotation support. In 2014 the xqDoc schema was
+				updated to include markup to capture XQuery annotations, however existing renderers
+				have often not been updated to make use of this. A major driver for annotation
+				support is documenting XQuery web applications built using the RESTXQ standard.
+				RESTXQ defines a standard set of XQuery annotations that can be used to define
+				RESTful Web Services from XQuery. Annotations are also being used to define
+				frameworks for unit testing, user permissioning and web socket interfaces.
+				Annotations are code markup that the runtime environment may choose to use to
+				wire-in additional external functionality to XQuery applications. The xqdoc
+				implementation is open source. It is largely written in XQuery and runs with recent
+				versions of BaseX. It generates static, stand alone HTML5 and XML output. The
+				included XQuery library modules can also be used to assist in the generation other
+				related documentation artefacts. In the case of RESTXQ these could be the generation
+				of openAPI(swagger) and WADL documents.</para>
 			<para><?oxy-placeholder content="Another paragraph …"?></para>
 		</abstract>
 	</info>
