@@ -93,6 +93,11 @@
 			these XQuery applications became more complex, it became obvious that a seamless tool
 			was needed to assist with documenting his ever growing and complex XQuery library
 			modules and main modules. </para>
+		<para>The schema <inlinemediaobject>
+				<imageobject>
+					<imagedata fileref="xqdoc-schema.png"/>
+				</imageobject>
+			</inlinemediaobject></para>
 	</section>
 	<section>
 		<title>xqDoc implementations</title>
@@ -153,6 +158,16 @@
 			<bibliomisc><link><link xmlns:xlink="http://www.w3.org/1999/xlink"
 						xlink:href="http://xqdoc.org/index.html"
 					>http://xqdoc.org/index.html</link></link></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>XPARSE</abbrev>
+			<author>
+				<personname><surname>Lumley</surname>
+					<firstname>John</firstname></personname>
+			</author>: <title>XParse Module</title>. <date>8 Dec 2014</date>, <orgname><link
+					xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://expath.org/"
+					>http://expath.org/</link></orgname>
+			<bibliomisc><link><link xmlns:xlink="http://www.w3.org/1999/xlink"
+						xlink:href="https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html"
+						>https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html</link></link></bibliomisc></bibliomixed>
 	</bibliography>
 
 </article>
