@@ -117,6 +117,10 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 								layer</link></para>
 					</listitem>
 				</itemizedlist></para>
+			<para>The eXist-db product uses annotations in its html <link
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xlink:href="https://exist-db.org/exist/apps/demo/examples/templating/templates.html"
+					>templating</link> feature</para>
 			<para>The MarkLogic product uses annotation for <link
 					xmlns:xlink="http://www.w3.org/1999/xlink"
 					xlink:href="https://docs.marklogic.com/guide/xquery/enhanced#id_94002"
@@ -193,20 +197,85 @@ define function print-module($uri as xs:string, $local as xs:boolean) as element
 			<para><?oxy-placeholder content="You can use not only paragraphs, but also programlistings, examples, lists, tables, etc."?></para>
 		</section>
 	</section>
-
 	<section>
-		<title>Introducing xqDocA</title>
-		<para>The model</para>
-		<para><inlinemediaobject>
-				<imageobject>
-					<imagedata fileref="images/model.svg"/>
-				</imageobject>
-			</inlinemediaobject></para>
-		<para><inlinemediaobject>
-				<imageobject>
-					<imagedata fileref="xqDocA.png" width="100%" scalefit="1"/>
-				</imageobject>
-			</inlinemediaobject></para>
+		<title>xqDocA</title>
+		<para>Motivation..</para>
+		<section>
+			<title>Implementation</title>
+			<para>The model</para>
+			<para><inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="images/model.svg"/>
+					</imageobject>
+				</inlinemediaobject></para>
+			<para><inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="xqDocA.png" width="100%" scalefit="1"/>
+					</imageobject>
+				</inlinemediaobject></para>
+			<para/>
+		</section>
+		<section>
+			<title>Working with xqdoc files</title>
+			<para>Namespace troubles</para>
+			<para>Function names may be referenced in XQuery in a number of different styles</para>
+			<para>
+				<itemizedlist>
+					<listitem>
+						<para><code>abc:foo(42)</code></para>
+					</listitem>
+					<listitem>
+						<para><code>foo(42)</code>   (: with a default function namespace :)</para>
+					</listitem>
+					<listitem>
+						<para><code>Q{http://nowhere.com/funs}foo(42)</code></para>
+					</listitem>
+				</itemizedlist>
+			</para>
+			<para>Most xqDoc implements return these as coded rather than normalising them to a
+				standard form.  </para>
+			<para>Static context</para>
+			<para>Some implementations allow  their library modules to be used without explicit
+				import module statements. These are included in the default static context. </para>
+			<para>If these are not listed in the generated <productname>xqdoc</productname> it can
+				be difficult to resolve some names. This suggests an xqdoc generator needs
+				information about the target runtime in particular details of it's static
+				context.</para>
+		</section>
+		<section>
+			<title>Customisation</title>
+			<para>With any report generator it is likely that customization will be required. To
+				facilitate this new <productname>xqdoca</productname> outputs can be added to the
+				system without modifications to the driver code. A plug-in system is provided using
+				the dynamic loading of code modules.</para>
+			<para>This is done using custom annotations within the <productname>xqdoca</productname>
+				codebase. Functions that generate <productname>xqdoca</productname> output must have
+				annotations in the xqdoca namespace indicating their role. At runtime a designated
+				directory is scanned for XQuery modules and functions containing the appropriate
+				annotations can be invoked. </para>
+			<para>This requires two features to be provided by the XQuery environment:<orderedlist>
+					<listitem>
+						<para>Dynamic module loading. This is provided in the XQuery 3.1
+							specification though <code>fn:load-xquery-module</code>. Currently this
+							is not widely supported however many implementation have custom variants
+							that provide equivalent functionality.</para>
+					</listitem>
+					<listitem>
+						<para>Annotation introspection. That is the ability at runtime to determine
+							what annotations were attached to a function. This is not a feature with
+							any standardization but again is widely supported via vendor libraries.
+							See <link xmlns:xlink="http://www.w3.org/1999/xlink"
+								xlink:href="https://www.saxonica.com/html/documentation/functions/saxon/function-annotations.html"
+								>Saxon</link>, <link xmlns:xlink="http://www.w3.org/1999/xlink"
+								xlink:href="https://docs.marklogic.com/sc:annotations"
+								>MarkLogic</link>, <link xmlns:xlink="http://www.w3.org/1999/xlink"
+								xlink:href="http://docs.basex.org/wiki/Inspection_Module#inspect:function-annotations"
+								>BaseX</link>, <link xmlns:xlink="http://www.w3.org/1999/xlink"
+								xlink:href="https://exist-db.org/exist/apps/fundocs/view.html?uri=http://exist-db.org/xquery/inspection"
+								>eXist-db</link></para>
+					</listitem>
+				</orderedlist></para>
+		</section>
 	</section>
 	
 	<section>
