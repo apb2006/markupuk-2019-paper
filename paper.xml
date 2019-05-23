@@ -202,13 +202,10 @@ define function print-module($uri as xs:string, $local as xs:boolean) as element
 		</section>
 		<section>
 			<title>Updates</title>
-			<section>
 				<para><productname>xqDoc</productname> was initially written to target XQuery 1.0.
 					In 2014 the schema was extended to capture XQuery annotation information defined
 					in XQuery 3.0. The figure below highlights the addition: </para>
-			</section>
-		</section>
-		<section>
+		
 			<para>
 				<inlinemediaobject>
 					<imageobject>
