@@ -120,9 +120,9 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 									<citation>2</citation></para>
                         </listitem>
 					</itemizedlist></para>
-				<para>The eXist-db product uses annotations in its html templating feature <citation>4
-					</citation> and the MarkLogic product uses annotations for transaction control
-						<citation>5</citation>.</para>
+				<para>The eXist-db product uses annotations in its html templating feature
+						<citation>4</citation> and the MarkLogic product uses annotations for
+					transaction control <citation>5</citation>.</para>
 			</section>
 		</section>
 	</section>
@@ -583,10 +583,10 @@ function _:swagger($model as map(*),
 			</author>: <title>xqDoc website</title>. <date>13 Jan 2014</date>, <orgname><link
 					xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://xqdoc.org"
 					>http://xqdoc.org</link></orgname>
-			<bibliomisc><link xl:href="https://github.com/dmcbeath/xqDoc"><link
+			<bibliomisc><link
 						xmlns:xlink="http://www.w3.org/1999/xlink"
 						xlink:href="http://xqdoc.org/index.html"
-					>http://xqdoc.org/index.html</link></link></bibliomisc></bibliomixed>
+					>http://xqdoc.org/index.html</link></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>XPARSE</abbrev>
 			<author>
 				<personname><surname>Lumley</surname>
@@ -690,6 +690,12 @@ function _:swagger($model as map(*),
 			</author>: <title>inspect:xqdoc</title>. , <orgname>BaseX</orgname>
 			<bibliomisc><link xl:href="http://docs.basex.org/wiki/Inspection_Module#inspect:xqdoc"
 				/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>17</abbrev>
+			<author>
+				<personname><surname>Cahlander</surname>
+					<firstname>Loren</firstname></personname>
+			</author>: <title> lcahlander/xqdoc </title>. ,  <bibliomisc><link
+					xl:href="https://github.com/lcahlander/xqdoc"/></bibliomisc></bibliomixed>
 	</bibliography>
 
 </article>
