@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/css" href="resources/css/paper.css"?>
 <article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0">
 	<info>
-		<title><emphasis role="bold">Documents from XQuery annotations</emphasis></title>
+		<title><emphasis role="bold">Generating documents from XQuery annotations</emphasis></title>
 		<author>
 			<personname>Andy Bunce</personname>
 			<email>bunce.andy@gmail.com</email>
@@ -107,32 +107,26 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 					made use of annotations. Many XQuery vendors provide a feature where by tests
 					can be run by invoking a command that scans a directory for modules containing
 					functions marked with a custom annotation for example<code>!unit:test</code>. An
-					example of this is [XRAY] for Mark Logic.</para>
+					example of this is XRAY for Mark Logic.</para>
 			</section>
 			<section>
 				<title>Other applications</title>
 				<para>The BaseX product has recently extended its list of built-in annotation
 					handlers with<itemizedlist>
 						<listitem>
-							<para><code>%ws</code> To define access to <link
-									xmlns:xlink="http://www.w3.org/1999/xlink"
-									xlink:href="http://docs.basex.org/wiki/WebSockets#Annotations"
-									>Web sockets</link></para>
+							<para><code>%ws</code> To define access to Web sockets<citerefentry>
+									<refentrytitle>[1]</refentrytitle>
+								</citerefentry></para>
 						</listitem>
 						<listitem>
-							<para><code>%perm</code> To define a web application <link
-									xmlns:xlink="http://www.w3.org/1999/xlink"
-									xlink:href="http://docs.basex.org/wiki/Permissions">permission
-									layer</link></para>
+							<para><code>%perm</code> To define a web application permission layer <citerefentry>
+									<refentrytitle>[2]</refentrytitle>
+								</citerefentry></para>
 						</listitem>
 					</itemizedlist></para>
-				<para>The eXist-db product uses annotations in its html <link
-						xmlns:xlink="http://www.w3.org/1999/xlink"
-						xlink:href="https://exist-db.org/exist/apps/demo/examples/templating/templates.html"
-						>templating</link> feature and the MarkLogic product uses annotations for
-						<link xmlns:xlink="http://www.w3.org/1999/xlink"
-						xlink:href="https://docs.marklogic.com/guide/xquery/enhanced#id_94002"
-						>transaction control</link> .</para>
+				<para>The eXist-db product uses annotations in its html templating feature
+						<citebiblioid>[4]</citebiblioid> and the MarkLogic product uses annotations
+					for transaction control  <citation>[5]</citation>.</para>
 			</section>
 		</section>
 	</section>
@@ -192,8 +186,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 				<para>
 					<itemizedlist>
 						<listitem>
-							<para><code>abc:foo(42)</code> or
-								<code>anotherprefix:foo(42)</code></para>
+							<para><code>abc:foo(42)</code> or <code>prefix2:foo(42)</code></para>
 						</listitem>
 						<listitem>
 							<para><code>foo(42)</code> (: with a default function namespace
@@ -236,6 +229,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 				<para>A partial list of xqdoc implementations<table>
 						<caption>xqDoc implementations</caption>
 						<col width="22%"/>
+						<col width="5%"/>
 						<col width="15%"/>
 						<col/>
 						<col/>
@@ -243,6 +237,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 						<thead>
 							<tr>
 								<th>Name</th>
+								<th>Ref</th>
 								<th>Language</th>
 								<th>Parser style</th>
 								<th>Status</th>
@@ -254,6 +249,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 								<td><link xmlns:xlink="http://www.w3.org/1999/xlink"
 										xlink:href="https://github.com/dmcbeath/xqDoc"
 									>xqDoc</link></td>
+								<td/>
 								<td>Java</td>
 								<td>ANTLR 2.7</td>
 								<td/>
@@ -261,6 +257,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 							</tr>
 							<tr>
 								<td>eXist-db</td>
+								<td/>
 								<td>Java</td>
 								<td>Unknown</td>
 								<td/>
@@ -270,12 +267,14 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 								<td><link xmlns:xlink="http://www.w3.org/1999/xlink"
 										xlink:href="http://docs.basex.org/wiki/Inspection_Module#inspect:xqdoc"
 										>BaseX</link></td>
+								<td/>
 								<td>Java</td>
 								<td>Unknown</td>
 								<td/>
 								<td>Supplied as library function</td>
 							</tr>
 							<tr>
+								<td>wcanillion/xqlint</td>
 								<td/>
 								<td>Javascript (Node)</td>
 								<td>REX</td>
@@ -287,6 +286,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 										xlink:href="https://github.com/lcahlander/xqdoc"
 										>lcahlander/xqdoc</link>
 								</td>
+								<td/>
 								<td>Java</td>
 								<td>ANTLR 4</td>
 								<td>Active</td>
@@ -300,7 +300,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 		<section>
 			<title>Parsers</title>
 			<para>Typically the code to implement parser is generated using a tool rather than hand written.
-				Tools that have been used for this task are ANTLR and REX. </para>
+				Tools that have been used for this task are ANTLR and <citation>REX</citation>. </para>
 			<para>ANTLR <link xmlns:xlink="http://www.w3.org/1999/xlink"
 					xlink:href="https://www.antlr.org/about.html"/></para>
 			<para>REX <link xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -557,6 +557,9 @@ function _:swagger($model as map(*),
 			have.</para>
 
 	</section>
+	<section>
+		<title>REx Parser Generator</title>
+	</section>
 
 	<bibliography xml:id="references">
 		<bibliomixed><abbrev>XQUERY31SPEC</abbrev>
@@ -587,14 +590,15 @@ function _:swagger($model as map(*),
 			<bibliomisc><link><link xmlns:xlink="http://www.w3.org/1999/xlink"
 						xlink:href="https://jcp.org/en/jsr/detail?id=370"
 						>https://jcp.org/en/jsr/detail?id=370</link></link></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>XQDOC</abbrev>
+		<bibliomixed><abbrev>3</abbrev>
 			<author>
 				<personname><surname>McBeath</surname>
 					<firstname>Darrin</firstname></personname>
 			</author>: <title>xqDoc website</title>. <date>13 Jan 2014</date>, <orgname><link
 					xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://xqdoc.org"
 					>http://xqdoc.org</link></orgname>
-			<bibliomisc><link><link xmlns:xlink="http://www.w3.org/1999/xlink"
+			<bibliomisc><link xl:href="https://github.com/dmcbeath/xqDoc"><link
+						xmlns:xlink="http://www.w3.org/1999/xlink"
 						xlink:href="http://xqdoc.org/index.html"
 					>http://xqdoc.org/index.html</link></link></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>XPARSE</abbrev>
@@ -607,6 +611,52 @@ function _:swagger($model as map(*),
 			<bibliomisc><link><link xmlns:xlink="http://www.w3.org/1999/xlink"
 						xlink:href="https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html"
 						>https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html</link></link></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>REX</abbrev>
+			<author>
+				<personname><surname>Rademacher</surname>
+					<firstname>Gunther</firstname></personname>
+			</author>: <title>REx Parser Generator</title>.
+				<date><?oxy-placeholder content="DD Month Year"?></date>,
+				<orgname><?oxy-placeholder content="Organization name"?></orgname>
+			<bibliomisc><link xmlns:xlink="http://www.w3.org/1999/xlink"
+						xlink:href="https://www.bottlecaps.de/rex/"
+						>https://www.bottlecaps.de/rex/</link></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>1</abbrev>
+			<author>
+				<personname><surname><?oxy-placeholder content="Surname"?></surname>
+					<firstname><?oxy-placeholder content="Firstname"?></firstname></personname>
+			</author>: <title>Web sockets</title>.
+				<date><?oxy-placeholder content="DD Month Year"?></date>, <orgname>BaseX</orgname>
+			<bibliomisc><link xl:href="http://docs.basex.org/wiki/WebSockets#Annotations"
+				/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>2</abbrev>
+			<author>
+				<personname><surname><?oxy-placeholder content="Surname"?></surname>
+					<firstname><?oxy-placeholder content="Firstname"?></firstname></personname>
+			</author>: <title>Web permissions</title>.
+				<date><?oxy-placeholder content="DD Month Year"?></date>,
+				<orgname><?oxy-placeholder content="Organization name"?></orgname>
+			<bibliomisc><link xl:href="http://docs.basex.org/wiki/Permissions#Annotations"
+				/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev xml:id="exist-templates">4</abbrev>
+			<author>
+				<personname><surname><?oxy-placeholder content="Surname"?></surname>
+					<firstname><?oxy-placeholder content="Firstname"?></firstname></personname>
+			</author>: <title>Templating</title>.
+				<date><?oxy-placeholder content="DD Month Year"?></date>, <orgname>Exist
+				db</orgname>
+			<bibliomisc><link
+					xl:href="https://exist-db.org/exist/apps/demo/examples/templating/templates.html"
+				/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>5</abbrev>
+			<author>
+				<personname><surname><?oxy-placeholder content="Surname"?></surname>
+					<firstname><?oxy-placeholder content="Firstname"?></firstname></personname>
+			</author>: <title>Transaction annotations</title>.
+				<date><?oxy-placeholder content="DD Month Year"?></date>,
+				<orgname><?oxy-placeholder content="Organization name"?></orgname>
+			<bibliomisc><link xl:href="https://docs.marklogic.com/guide/xquery/enhanced#id_94002"
+				/></bibliomisc></bibliomixed>
 	</bibliography>
 
 </article>
