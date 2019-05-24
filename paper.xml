@@ -165,7 +165,8 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 : viewing or dynamic links for real-time viewing.
 : @return XHTML.
 :)
-define function print-module($uri as xs:string, $local as xs:boolean) as element()* 
+define 
+function print-module($uri as xs:string, $local as xs:boolean) as element()* 
 </programlisting></para>
 			
 		</section>
@@ -515,7 +516,8 @@ as document-node() </programlisting>
 			</para>
 			<para>
 				<programlisting>declare 
-%Q{https://github.com/Quodatum/xqdoca}global("swagger1","Swagger file (JSON format) from restxq annotations.")
+%Q{https://github.com/Quodatum/xqdoca}global("swagger1",
+                "Swagger file (JSON format) from restxq annotations.")
 %Q{https://github.com/Quodatum/xqdoca}output("swagger.json","json") 
 function _:swagger($model as map(*),
                             $opts as map(*)
