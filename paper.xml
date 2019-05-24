@@ -50,18 +50,18 @@
 			the history of XQuery documentation tools </para>
 	</section>
 	<section>
-		<title>Annotations</title>
-		<para><?oxy-placeholder content="You can use not only paragraphs, but also programlistings, examples, lists, tables, etc."?></para>
+		<title>Annotations?</title>
+		<para>What are they, and how are they used.</para>
 		<section>
 			<title>What are annotations?</title>
 			<para> Wikipedia defines an <emphasis role="bold">annotation</emphasis> as "a metadatum
 				(e.g. a post, explanation, <emphasis>markup</emphasis>) attached to location or
 				other data." Their use in main-stream software engineering  began in 2004 when Java
 				5 introduced them via JSR 175.</para>
-			<para>Annotations in XQuery were introduced in 2014 starting with XQuery 3.0. The syntax
-				is a "%" followed by a EQName and an optional set of values. The specification
-				simply states: <quote>XQuery uses annotations to declare properties associated with
-					functions (inline or declared in the prolog) and variables. </quote></para>
+			<para>Annotations were introduction in XQuery 3.0 in 2014. The syntax is a "%" followed by a
+				EQName and an optional set of values. The specification simply states: <quote>XQuery
+					uses annotations to declare properties associated with functions (inline or
+					declared in the prolog) and variables. </quote></para>
 		</section>
 		<section>
 			<title>Use of annotations in XQuery</title>
@@ -82,9 +82,9 @@
 			</section>
 			<section>
 				<title>RestXQ</title>
-				<para>At XML Prague in 2012 Adam Retter presented. see
-						<citebiblioid>RESTXQ</citebiblioid> . It is based on the popular Java
-					standard  for RESTful Web Services JAX-RS. It has since been implemented by many
+				<para>In 2012 Adam Retter presented a use of  annotations to define a web
+						interface<citebiblioid>RESTXQ</citebiblioid> . It is based on the Java
+					standard for RESTful Web Services JAX-RS. It has since been implemented by many
 					XQuery products as it provides a straight forward way to wire-up XQuery code to
 					a web interface. </para>
 				<para>A simple RESTXQ
@@ -103,17 +103,14 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 			</section>
 			<section>
 				<title>Unit testing</title>
-				<para>Unit testing is another popular domain for annotations. In the Java world
-					JUnit has long made use of annotations. In XQuery <itemizedlist>
-						<listitem>
-							<para>Marklogic has <link xmlns:xlink="http://www.w3.org/1999/xlink"
-									xlink:href="https://github.com/robwhitby/xray"
-								>XRAY</link></para>
-						</listitem>
-					</itemizedlist></para>
+				<para>Unit testing is another popular domain for annotations. In the Java world JUnit has long
+					made use of annotations. Many XQuery vendors provide a feature where by tests
+					can be run by invoking a command that scans a directory for modules containing
+					functions marked with a custom annotation for example<code>!unit:test</code>. An
+					example of this is [XRAY] for Mark Logic.</para>
 			</section>
 			<section>
-				<title>Others</title>
+				<title>Other applications</title>
 				<para>The BaseX product has recently extended its list of built-in annotation
 					handlers with<itemizedlist>
 						<listitem>
@@ -170,7 +167,23 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 :)
 define function print-module($uri as xs:string, $local as xs:boolean) as element()* 
 </programlisting></para>
-			<section>
+			
+		</section>
+		<section>
+			<title>Schema updates</title>
+				<para><productname>xqDoc</productname> was initially written to target XQuery 1.0.
+					In 2014 the schema was extended to capture XQuery annotation information defined
+					in XQuery 3.0. The figure below highlights the addition: </para>
+		
+			<para>
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="xqdoc-schema.png" width="100%" scalefit="1"/>
+					</imageobject>
+				</inlinemediaobject></para>
+		</section>
+
+          <section>
 				<title>Working with xqDoc documents</title>
 				<para>Tips:</para>
 				<para>Function names may be referenced in XQuery in a number of different
@@ -199,21 +212,7 @@ define function print-module($uri as xs:string, $local as xs:boolean) as element
 					This suggests an xqdoc generator needs information about the target platform
 					both for it's grammar and  it's static context.</para>
 			</section>
-		</section>
-		<section>
-			<title>Updates</title>
-				<para><productname>xqDoc</productname> was initially written to target XQuery 1.0.
-					In 2014 the schema was extended to capture XQuery annotation information defined
-					in XQuery 3.0. The figure below highlights the addition: </para>
-		
-			<para>
-				<inlinemediaobject>
-					<imageobject>
-						<imagedata fileref="xqdoc-schema.png" width="100%" scalefit="1"/>
-					</imageobject>
-				</inlinemediaobject></para>
-		</section>
-		<section>
+            <section>
 			<title>Components</title>
 			<para>Implementations of <productname>xqDoc</productname>  have three main components:<orderedlist>
 					<listitem>
@@ -231,16 +230,55 @@ define function print-module($uri as xs:string, $local as xs:boolean) as element
 					</listitem>
 				</orderedlist></para>
 			<section>
-				<title>xqdoc.org</title>
-				<para>Is written in Java and uses ANTLR 2.7 for the parsing. </para>
-			</section>
-			<section>
-				<title>ExistDb</title>
-				<para>Providesthe docs module</para>
-			</section>
-			<section>
-				<title>BaseX</title>
-				<para><?oxy-placeholder content="You can use not only paragraphs, but also programlistings, examples, lists, tables, etc."?></para>
+				<title>Implementations</title>
+				<para>A partial list of xqdoc implementations<table>
+						<caption>xqDoc implementations</caption>
+						<col/>
+						<col/>
+						<col/>
+						<col/>
+						<col/>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Language</th>
+								<th>Parser style</th>
+								<th>Link</th>
+								<th>Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>xqdoc</td>
+								<td>Java</td>
+								<td>ANTLR 2.7</td>
+								<td/>
+								<td/>
+							</tr>
+							<tr>
+								<td>exist-db</td>
+								<td>Java</td>
+								<td>?</td>
+								<td/>
+								<td>Supplied as library function</td>
+							</tr>
+							<tr>
+								<td>basex</td>
+								<td>Java</td>
+								<td>?</td>
+								<td/>
+								<td/>
+							</tr>
+							<tr>
+								<td/>
+								<td/>
+								<td/>
+								<td/>
+								<td/>
+							</tr>
+						</tbody>
+					</table></para>
+				<para/>
 			</section>
 		</section>
 		<section>
@@ -251,19 +289,20 @@ define function print-module($uri as xs:string, $local as xs:boolean) as element
 	</section>
 	<section>
 		<title>Introducing xqDocA</title>
-		<para>Motivation..</para>
+		<para>xqDocA was written to show the connections between various perspectives onto an XQuery
+			codebase.</para>
 		<section>
 			<title>Overview</title>
 			<para>Given a list of the files to process...</para>
-			<para> It creates an XQuery map that holds information about the source location of each
-				file along with a created XML parse tree and xqdoc. This map is is referred to as
-				the <emphasis>model</emphasis>. Another map holds configuration options to apply to
-				the run. This includes a list of "renderers" to run against the
-					<emphasis>model</emphasis>.</para>
+			<para> It creates an XQuery map that holds information about the source location of each file
+				along with a created XML parse tree and xqdoc. This map is is referred to as the
+					<emphasis>model</emphasis>. Another map <code>$options</code>  holds
+				configuration options to apply to the run. This includes a list of "renderers" to
+				run against the <emphasis>model</emphasis>.</para>
 			<para>The model</para>
 			<para><inlinemediaobject>
 					<imageobject>
-						<imagedata fileref="images/model.svg"/>
+						<imagedata fileref="model.svg"/>
 					</imageobject>
 				</inlinemediaobject></para>
 			<para>A renderer creates a single output file. There are currently two kinds of
@@ -279,9 +318,9 @@ define function print-module($uri as xs:string, $local as xs:boolean) as element
 				</orderedlist></para>
 			<section>
 				<title>Renderers</title>
-				<para>Are implemented as a map with the following keys:<table>
+				<para>Renderers can be viewed as a map with the following keys:<table>
 						<caption>Renderer properties</caption>
-						<col width="50%"/>
+						<col width="20%"/>
 						<col/>
 						<col/>
 						<thead>
@@ -294,28 +333,33 @@ define function print-module($uri as xs:string, $local as xs:boolean) as element
 						<tbody>
 							<tr>
 								<td>Name</td>
-								<td/>
-								<td/>
+								<td>xs:string</td>
+								<td>Used to identify the renderer </td>
 							</tr>
 							<tr>
 								<td>description</td>
-								<td/>
-								<td/>
+								<td>xs:string</td>
+								<td>About the renderer</td>
 							</tr>
 							<tr>
 								<td>type</td>
-								<td/>
-								<td/>
+								<td>xs:string</td>
+								<td>"global" or "module"</td>
 							</tr>
 							<tr>
 								<td>uri</td>
-								<td/>
-								<td/>
+								<td>xs:string</td>
+								<td>The name of the output it creates</td>
+							</tr>
+							<tr>
+								<td>output</td>
+								<td>xs:string</td>
+								<td>Serialization parameters  for the output</td>
 							</tr>
 							<tr>
 								<td>function</td>
-								<td/>
-								<td/>
+								<td>function(*)</td>
+								<td>The function that implements the renderering</td>
 							</tr>
 						</tbody>
 					</table></para>
@@ -327,14 +371,6 @@ define function print-module($uri as xs:string, $local as xs:boolean) as element
   "function": Q{quodatum:build.xqdoc-html}index-html2#2,
   "type": Q{https://github.com/Quodatum/xqdoca}global,
   "description": "Index of sources"
-}
-map {
-  "output": "html5",
-  "name": "import",
-  "uri": "imports.html",
-  "function": Q{quodatum:build.xqdoc-html}imports#2,
-  "type": Q{https://github.com/Quodatum/xqdoca}global,
-  "description": "Summary of import usage"
 }
 
 map {
@@ -354,17 +390,27 @@ map {
   "type": Q{https://github.com/Quodatum/xqdoca}module,
   "description": "xqparse file for the source module"
 }</programlisting></para>
+				<para>All outputs are created below the target folder specified in the $options. For
+					module style outputs numbered sub-folders are created for each source module and
+					the uri  is resolved relative to this folder.</para>
 			</section>
 		</section>
 		<section>
 			<title>Implementation</title>
-			<para>It uses XQuery 3.1 The parsing uses REX</para>
+			<para>It uses XQuery 3.1 The parsing uses REX. apply??</para>
+		</section>
+		<section>
+			<title>Sample outputs</title>
 			<para><inlinemediaobject>
 					<imageobject>
-						<imagedata fileref="xqDocA.png" width="100%" scalefit="1"/>
+						<imagedata fileref="xqdoca-funs.png"/>
 					</imageobject>
 				</inlinemediaobject></para>
-			<para/>
+			<para><inlinemediaobject>
+					<imageobject>
+						<imagedata fileref="xqdoca-rest.png"/>
+					</imageobject>
+				</inlinemediaobject></para>
 		</section>
 		<section>
 			<title>Customisation</title>
