@@ -58,10 +58,10 @@
 				(e.g. a post, explanation, <emphasis>markup</emphasis>) attached to location or
 				other data." Their use in main-stream software engineering  began in 2004 when Java
 				5 introduced them via JSR 175.</para>
-			<para>Annotations were introduction in XQuery 3.0 in 2014. The syntax is a "%" followed by a
-				EQName and an optional set of values. The specification simply states: <quote>XQuery
-					uses annotations to declare properties associated with functions (inline or
-					declared in the prolog) and variables. </quote></para>
+			<para>Annotations were added in XQuery 3.0 in 2014. The syntax is a "%" followed by a EQName and
+				an optional set of values. The specification simply states: <quote>XQuery uses
+					annotations to declare properties associated with functions (inline or declared
+					in the prolog) and variables. </quote></para>
 		</section>
 		<section>
 			<title>Use of annotations in XQuery</title>
