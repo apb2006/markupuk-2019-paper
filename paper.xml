@@ -324,7 +324,7 @@ define function print-module($uri as xs:string, $local as xs:boolean) as element
 			<para>The model</para>
 			<para><inlinemediaobject>
 					<imageobject>
-						<imagedata fileref="model.png"/>
+						<imagedata fileref="model.png" width="100%" scalefit="1"/>
 					</imageobject>
 				</inlinemediaobject></para>
 			<para>A renderer creates a single output file. There are currently two kinds of
@@ -445,7 +445,7 @@ map {
 				</inlinemediaobject></para>
 			<para><inlinemediaobject>
 					<imageobject>
-						<imagedata fileref="xqdoca-rest.png"/>
+						<imagedata fileref="xqdoca-rest.png" width="100%" scalefit="1"/>
 					</imageobject>
 				</inlinemediaobject></para>
 		</section>
