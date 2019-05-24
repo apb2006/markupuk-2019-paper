@@ -110,15 +110,15 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 			</section>
 			<section>
 				<title>Other applications</title>
-				<para>The BaseX product has recently extended its list of built-in annotation
-					handlers with<itemizedlist>
+				<para>The BaseX product has recently extended its list of built-in annotation handlers with:<itemizedlist>
 						<listitem>
-							<para><code>%ws</code> To define access to Web sockets <citation>1</citation></para>
+							<para><code>%ws</code> To define access to Web sockets
+									<citation>1</citation></para>
 						</listitem>
-						<listitem> 
-                          <para><code>%perm</code> To define a web application permission layer
+						<listitem>
+							<para><code>%perm</code> To define a web application permission layer
 									<citation>2</citation></para>
-                        </listitem>
+						</listitem>
 					</itemizedlist></para>
 				<para>The eXist-db product uses annotations in its html templating feature
 						<citation>4</citation> and the MarkLogic product uses annotations for
@@ -132,9 +132,9 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 		<section>
 			<title>The xqDoc format</title>
 			<para>In 2002, Darin McBeath realised the need for a tool for generating documentation from
-				XQuery sources and created xqDoc  web site. This defines an XML schema for the
-				namespace http://www.xqdoc.org/1.0. This provides a vocabulary to describe an XQuery
-				modules and a reference JAVA implementation. </para>
+				XQuery sources and created xqDoc web site <citation>XQDOC</citation>. This defines
+				an XML schema for the namespace http://www.xqdoc.org/1.0. This provides a vocabulary
+				to describe an XQuery module and a reference JAVA implementation. </para>
 			<para>To get full value from <productname>xqDoc</productname> the source should contain
 				comments formatted according to certain conventions in a similar fashion to Javadoc
 				comments. See example
@@ -177,8 +177,8 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
           <section>
 				<title>Working with xqDoc documents</title>
 				<para>The following features should be born in mind:</para>
-				<para>Function names may be referenced in XQuery in a number of different
-					styles</para>
+				<para>Function names may be referenced in XQuery in a number of different styles.For
+				example:</para>
 				<para>
 					<itemizedlist>
 						<listitem>
@@ -236,7 +236,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 								<th>Ref</th>
 								<th>Language</th>
 								<th>Parser style</th>
-								<th>Status</th>
+								<th>Last update</th>
 								<th>Notes</th>
 							</tr>
 						</thead>
@@ -246,7 +246,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 								<td><citation>XQDOC</citation></td>
 								<td>Java</td>
 								<td>ANTLR 2.7</td>
-								<td>Last active 2014</td>
+								<td>2014</td>
 								<td/>
 							</tr>
 							<tr>
@@ -254,7 +254,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 								<td><citation>14</citation></td>
 								<td>XQuery</td>
 								<td>REX</td>
-								<td>last active 2016</td>
+								<td>2016</td>
 								<td/>
 							</tr>
 							<tr>
@@ -278,7 +278,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 								<td><citation>9</citation></td>
 								<td>Javascript (Node)</td>
 								<td>REX</td>
-								<td>Dormant</td>
+								<td>2018</td>
 								<td>use help to find xqdoc option.</td>
 							</tr>
 							<tr>
@@ -326,12 +326,12 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 			<para>A renderer creates a single output file. There are currently two kinds of
 				renderers. <orderedlist>
 					<listitem>
-						<para><emphasis>global</emphasis>: this generates an output that is project
-							wide, such as an index.</para>
+						<para><emphasis>global</emphasis>:  generate an output that is project wide, such as an
+							index.</para>
 					</listitem>
 					<listitem>
-						<para><emphasis>module</emphasis>this generates an output for each XQuery
-							source file, such as a direct rendering of a xqDoc file.</para>
+						<para><emphasis>module</emphasis> generate an output for each XQuery source file, such as a
+							direct rendering of its  xqDoc file.</para>
 					</listitem>
 				</orderedlist></para>
 			<section>
@@ -362,7 +362,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 							<tr>
 								<td>type</td>
 								<td>xs:string</td>
-								<td>"global" or "module"</td>
+								<td>"xqdoca:global" or "xqdoca:module"</td>
 							</tr>
 							<tr>
 								<td>uri</td>
@@ -424,8 +424,31 @@ map {
 		</section>
 		<section>
 			<title>Implementation</title>
-			<para>It uses XQuery 3.1 The parsing uses REX. apply??</para>
-			<para>TODO</para>
+			<para>The code runs under BaseX 9.2, currently no XSLT is used by the built-in renderers. For
+				parsing it uses  the <productname>ex-xparse</productname> component
+					<citation>18</citation>. This component is a REX based parser. </para>
+			<para>The rendering code
+				is:<programlisting>      for $render in $global
+      let $doc:= apply($render?function,[$model,$opts])
+      return map{"document": $doc, 
+                 "uri": $render?uri, 
+                 "output":$xqo:outputs?($render?output)
+               },
+               
+      for $render in $module, $file at $pos in $model?files
+      (: override opts for destination path :)
+      let $opts:=map:merge((
+            map{
+              "root": "../../",
+              "resources": "../../resources/"
+            }, $opts))
+      let $doc:= apply($render?function,[$file,$opts,$model])       
+      return map{"document": $doc, 
+                 "uri": concat($file?href,"/",$render?uri),  
+                 "output": $xqo:outputs?($render?output)
+                }
+              )                          
+</programlisting></para>
 		</section>
 		<section>
 			<title>Sample outputs</title>
@@ -476,26 +499,26 @@ map {
 					<tbody>
 						<tr>
 							<td><code>xqdoca:global</code></td>
-							<td>Indicates function is a global renderer</td>
-							<td>Name for reference and description</td>
+							<td>Indicates a global renderer</td>
+							<td>(name for reference, description)</td>
 						</tr>
 						<tr>
 							<td><code>xqdoca:module</code></td>
-							<td>Indicates function is a module renderer</td>
-							<td>Name for reference and description</td>
+							<td>Indicates a module renderer</td>
+							<td>(name for reference , description)</td>
 						</tr>
 						<tr>
 							<td><code>xqdoca:output</code></td>
 							<td>Serialization details</td>
-							<td>name of output, serialization type</td>
+							<td>(output-uri, serialization-type)</td>
 						</tr>
 					</tbody>
 				</table>
 			</para>
 			<para>
 				<note>
-					<para>Only one of <code>xqdoca:global</code>  and <code>xqdoca:module</code> can
-						be applied to given function.</para>
+					<para>A function will have one of <code>xqdoca:global</code> or <code>xqdoca:module</code> and
+						a <code>xqdoca:output</code>.</para>
 				</note>
 			</para>
 			<para>Sample usage:</para>
@@ -521,14 +544,14 @@ function _:swagger($model as map(*),
 			</para>
 			<para>This requires two features to be provided by the XQuery environment:<orderedlist>
 					<listitem>
-						<para>Dynamic module loading. This is provided in the XQuery 3.1
-							specification though <code>fn:load-xquery-module</code>. Currently this
-							is not widely supported however many implementation have custom variants
-							that provide equivalent functionality.</para>
+						<para>Dynamic module loading. This is standardised in the XQuery 3.1 specification as
+								<code>fn:load-xquery-module</code>. Currently this is not widely
+							supported however many implementation have custom variants that provide
+							equivalent functionality.</para>
 					</listitem>
 					<listitem>
 						<para>Annotation introspection. That is the ability at runtime to determine what annotations
-							were attached to a function. This is not a feature with any
+							are attached to a function. This is not a feature with any
 							standardization but again is widely supported via vendor libraries. See
 							Saxon <citation>10</citation>, MarkLogic <citation>11</citation>, BaseX
 								<citation>12</citation> , eXist-db <citation>13</citation>.</para>
@@ -539,9 +562,9 @@ function _:swagger($model as map(*),
 	
 	<section>
 		<title>Conclusion</title>
-		<para>I hope that this project may be a value for those working with XQuery and perhaps inspire
-			some new uses for annotations. </para>
-		<para>The code for xqDocA is available at <link xmlns:xlink="http://www.w3.org/1999/xlink"
+		<para>I hope that this project may be a value for those working with XQuery code and perhaps
+			inspire some new uses for annotations. </para>
+		<para>For code and issues see <link xmlns:xlink="http://www.w3.org/1999/xlink"
 				xlink:href="https://github.com/Quodatum/xqdoca"
 				>https://github.com/Quodatum/xqdoca</link>. </para>
 
@@ -696,6 +719,12 @@ function _:swagger($model as map(*),
 					<firstname>Loren</firstname></personname>
 			</author>: <title> lcahlander/xqdoc </title>. ,  <bibliomisc><link
 					xl:href="https://github.com/lcahlander/xqdoc"/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>18</abbrev>
+			<author>
+				<personname><surname>Bunce</surname>
+					<firstname>Andy</firstname></personname>
+			</author>: <title>ex-parse</title>. ,  <bibliomisc><link
+					xl:href="https://github.com/expkg-zone58/ex-xparse"/></bibliomisc></bibliomixed>
 	</bibliography>
 
 </article>
