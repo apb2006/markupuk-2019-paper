@@ -125,8 +125,8 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 						</listitem>
 					</itemizedlist></para>
 				<para>The eXist-db product uses annotations in its html templating feature
-						<citebiblioid>[4]</citebiblioid> and the MarkLogic product uses annotations
-					for transaction control  <citation>[5]</citation>.</para>
+						<citebiblioid>4</citebiblioid> and the MarkLogic product uses annotations
+					for transaction control  <citation>5</citation>.</para>
 			</section>
 		</section>
 	</section>
