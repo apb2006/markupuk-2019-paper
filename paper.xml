@@ -83,10 +83,9 @@
 			<section>
 				<title>RestXQ</title>
 				<para>In 2012 Adam Retter presented a use of annotations to define a web interface
-						<citebiblioid>RESTXQ</citebiblioid> . It is based on the Java standard for
-					RESTful Web Services JAX-RS. It has since been implemented by many XQuery
-					products as it provides a straight forward way to wire-up XQuery code to a web
-					interface. </para>
+						<citation>RESTXQ</citation> . It is based on the Java standard for RESTful
+					Web Services JAX-RS. It has since been implemented by many XQuery products as it
+					provides a straight forward way to wire-up XQuery code to a web interface. </para>
 				<para>A simple RESTXQ
 					example:<programlisting>module namespace page = 'http://basex.org/examples/web-page';
  
@@ -107,26 +106,23 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 					made use of annotations. Many XQuery vendors provide a feature where by tests
 					can be run by invoking a command that scans a directory for modules containing
 					functions marked with a custom annotation for example<code>!unit:test</code>. An
-					example of this is XRAY for Mark Logic.</para>
+					example of this is XRAY for Mark Logic <citation>6</citation>.</para>
 			</section>
 			<section>
 				<title>Other applications</title>
 				<para>The BaseX product has recently extended its list of built-in annotation
 					handlers with<itemizedlist>
 						<listitem>
-							<para><code>%ws</code> To define access to Web sockets<citerefentry>
-									<refentrytitle>[1]</refentrytitle>
-								</citerefentry></para>
+							<para><code>%ws</code> To define access to Web sockets [<citation>1</citation>]</para>
 						</listitem>
-						<listitem>
-							<para><code>%perm</code> To define a web application permission layer <citerefentry>
-									<refentrytitle>[2]</refentrytitle>
-								</citerefentry></para>
-						</listitem>
+						<listitem> 
+                          <para><code>%perm</code> To define a web application permission layer
+									[<citation>2</citation>]</para>
+                        </listitem>
 					</itemizedlist></para>
-				<para>The eXist-db product uses annotations in its html templating feature
-						<citebiblioid>4</citebiblioid> and the MarkLogic product uses annotations
-					for transaction control  <citation>5</citation>.</para>
+				<para>The eXist-db product uses annotations in its html templating feature [<citation>4
+					</citation>] and the MarkLogic product uses annotations for transaction control
+						[<citation>5</citation>].</para>
 			</section>
 		</section>
 	</section>
@@ -136,7 +132,7 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 		<section>
 			<title>The xqDoc format</title>
 			<para>In 2002, Darin McBeath realised the need for a tool for generating documentation from
-				XQuery sources and created xqDoc <biblioref/>. This defines an XML schema for the
+				XQuery sources and created xqDoc  web site. This defines an XML schema for the
 				namespace http://www.xqdoc.org/1.0. This provides a vocabulary to describe an XQuery
 				modules and a reference JAVA implementation. </para>
 			<para>To get full value from <productname>xqDoc</productname> the source should contain
@@ -228,8 +224,8 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 				<title>Implementations</title>
 				<para>A partial list of xqdoc implementations<table>
 						<caption>xqDoc implementations</caption>
-						<col width="22%"/>
-						<col width="5%"/>
+						<col width="18%"/>
+						<col width="10%"/>
 						<col width="15%"/>
 						<col/>
 						<col/>
@@ -246,47 +242,48 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 						</thead>
 						<tbody>
 							<tr>
-								<td><link xmlns:xlink="http://www.w3.org/1999/xlink"
-										xlink:href="https://github.com/dmcbeath/xqDoc"
-									>xqDoc</link></td>
-								<td/>
+								<td>xqDoc</td>
+								<td>[<citation>XQDOC</citation>]</td>
 								<td>Java</td>
 								<td>ANTLR 2.7</td>
+								<td>Last active 2014</td>
 								<td/>
+							</tr>
+							<tr>
+								<td>xquery/ xquerydoc </td>
+								<td>[<citation>14</citation>]</td>
+								<td>XQuery</td>
+								<td>REX</td>
+								<td>last active 2016</td>
 								<td/>
 							</tr>
 							<tr>
 								<td>eXist-db</td>
-								<td/>
+								<td>[<citation>15</citation>]</td>
 								<td>Java</td>
-								<td>Unknown</td>
+								<td>(unknown)</td>
 								<td/>
-								<td>Supplied as library function</td>
+								<td>Supplied as library function.</td>
 							</tr>
 							<tr>
-								<td><link xmlns:xlink="http://www.w3.org/1999/xlink"
-										xlink:href="http://docs.basex.org/wiki/Inspection_Module#inspect:xqdoc"
-										>BaseX</link></td>
-								<td/>
+								<td>BaseX</td>
+								<td>[<citation>16</citation>]</td>
 								<td>Java</td>
-								<td>Unknown</td>
+								<td>(unknown)</td>
 								<td/>
-								<td>Supplied as library function</td>
+								<td>Supplied as library function.</td>
 							</tr>
 							<tr>
-								<td>wcanillion/xqlint</td>
-								<td/>
+								<td>wcanillion/ xqlint</td>
+								<td>[<citation>9</citation>]</td>
 								<td>Javascript (Node)</td>
 								<td>REX</td>
 								<td>Dormant</td>
-								<td/>
+								<td>use help to find xqdoc option.</td>
 							</tr>
 							<tr>
-								<td><link xmlns:xlink="http://www.w3.org/1999/xlink"
-										xlink:href="https://github.com/lcahlander/xqdoc"
-										>lcahlander/xqdoc</link>
-								</td>
-								<td/>
+								<td>lcahlander/ xqdoc </td>
+								<td>[<citation>17</citation>]</td>
 								<td>Java</td>
 								<td>ANTLR 4</td>
 								<td>Active</td>
@@ -300,34 +297,32 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 		<section>
 			<title>Parsers</title>
 			<para>Typically the code to implement parser is generated using a tool rather than hand written.
-				Tools that have been used for this task are ANTLR and <citation>REX</citation>. </para>
-			<para>ANTLR <link xmlns:xlink="http://www.w3.org/1999/xlink"
-					xlink:href="https://www.antlr.org/about.html"/></para>
-			<para>REX <link xmlns:xlink="http://www.w3.org/1999/xlink"
-					xlink:href="https://www.bottlecaps.de/rex/"/></para>
-			<para>REX, by Gunther Rademacher, has  the valuable feature that it takes as input
-				format EBNF. EBNF is  the grammar language used in the XQuery standards. It can also
-				output parser code in many languages, including XQuery.</para>
+				Tools that have been used for this task are ANTLR [<citation>7</citation>] and REX
+					[<citation>8</citation>]. </para>
+			<para>REX has the valuable feature that its input format is EBNF. EBNF is the grammar language
+				used in the XQuery standards. It can also output parser code in many languages,
+				including XQuery 1.0 and Javascript.</para>
 		</section>
 	</section>
 	<section>
 		<title>Introducing xqDocA</title>
 		<para>xqDocA was written to show the connections between various modules and perspectives onto an
-			XQuery codebase. Goals include</para>
+			XQuery code base. </para>
 		<section>
 			<title>Overview</title>
 			<para>Given a list of the files to process...</para>
 			<para> It creates an XQuery map that holds information about the source location of each file
 				along with a created XML parse tree and xqdoc output. This map is referred to as the
-					<emphasis>model</emphasis>. Another map <code>$options</code>  holds
-				configuration options to apply to the run. This includes a list of "renderers" to
-				run against the <emphasis>model</emphasis>.</para>
-			<para>The model</para>
+					<emphasis>model</emphasis>. </para>
+			<para>The model:</para>
 			<para><inlinemediaobject>
 					<imageobject>
 						<imagedata fileref="model.png" width="100%" scalefit="1"/>
 					</imageobject>
 				</inlinemediaobject></para>
+			<para>Another map <code>$options</code> holds configuration options to apply to the run.
+				This includes a list of "renderers" to run against the
+				<emphasis>model</emphasis>.</para>
 			<para>A renderer creates a single output file. There are currently two kinds of
 				renderers. <orderedlist>
 					<listitem>
@@ -382,7 +377,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 							<tr>
 								<td>function</td>
 								<td>function(*)</td>
-								<td>The function that implements the renderering</td>
+								<td>The function that implements the rendering</td>
 							</tr>
 						</tbody>
 					</table></para>
@@ -430,7 +425,7 @@ map {
 		<section>
 			<title>Implementation</title>
 			<para>It uses XQuery 3.1 The parsing uses REX. apply??</para>
-			<para>s</para>
+			<para>TODO</para>
 		</section>
 		<section>
 			<title>Sample outputs</title>
@@ -532,18 +527,12 @@ function _:swagger($model as map(*),
 							that provide equivalent functionality.</para>
 					</listitem>
 					<listitem>
-						<para>Annotation introspection. That is the ability at runtime to determine
-							what annotations were attached to a function. This is not a feature with
-							any standardization but again is widely supported via vendor libraries.
-							See <link xmlns:xlink="http://www.w3.org/1999/xlink"
-								xlink:href="https://www.saxonica.com/html/documentation/functions/saxon/function-annotations.html"
-								>Saxon</link>, <link xmlns:xlink="http://www.w3.org/1999/xlink"
-								xlink:href="https://docs.marklogic.com/sc:annotations"
-								>MarkLogic</link>, <link xmlns:xlink="http://www.w3.org/1999/xlink"
-								xlink:href="http://docs.basex.org/wiki/Inspection_Module#inspect:function-annotations"
-								>BaseX</link>, <link xmlns:xlink="http://www.w3.org/1999/xlink"
-								xlink:href="https://exist-db.org/exist/apps/fundocs/view.html?uri=http://exist-db.org/xquery/inspection"
-								>eXist-db</link></para>
+						<para>Annotation introspection. That is the ability at runtime to determine what annotations
+							were attached to a function. This is not a feature with any
+							standardization but again is widely supported via vendor libraries. See
+							Saxon [<citation>10</citation>],  MarkLogic [<citation>11</citation>],
+							BaseX [<citation>12</citation> ],  eXist-db
+							[<citation>13</citation>].</para>
 					</listitem>
 				</orderedlist></para>
 		</section>
@@ -551,14 +540,12 @@ function _:swagger($model as map(*),
 	
 	<section>
 		<title>Conclusion</title>
+		<para>I hope that this project may be a value for those working with XQuery and perhaps inspire
+			some new uses for annotations. </para>
 		<para>The code for xqDocA is available at <link xmlns:xlink="http://www.w3.org/1999/xlink"
 				xlink:href="https://github.com/Quodatum/xqdoca"
-				>https://github.com/Quodatum/xqdoca</link>. I welcome any feedback you may
-			have.</para>
+				>https://github.com/Quodatum/xqdoca</link>. </para>
 
-	</section>
-	<section>
-		<title>REx Parser Generator</title>
 	</section>
 
 	<bibliography xml:id="references">
@@ -587,10 +574,10 @@ function _:swagger($model as map(*),
 			</author>: <title>JSR 370: JavaTM API for RESTful Web Services (JAX-RS 2.1)
 				Specification</title>. <date>22 Aug 2017</date>, <orgname>Java Community Process
 				(JCP)</orgname>
-			<bibliomisc><link><link xmlns:xlink="http://www.w3.org/1999/xlink"
+			<bibliomisc><link xmlns:xlink="http://www.w3.org/1999/xlink"
 						xlink:href="https://jcp.org/en/jsr/detail?id=370"
-						>https://jcp.org/en/jsr/detail?id=370</link></link></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>3</abbrev>
+						>https://jcp.org/en/jsr/detail?id=370</link></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>XQDOC</abbrev>
 			<author>
 				<personname><surname>McBeath</surname>
 					<firstname>Darrin</firstname></personname>
@@ -608,54 +595,101 @@ function _:swagger($model as map(*),
 			</author>: <title>XParse Module</title>. <date>8 Dec 2014</date>, <orgname><link
 					xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://expath.org/"
 					>http://expath.org/</link></orgname>
-			<bibliomisc><link><link xmlns:xlink="http://www.w3.org/1999/xlink"
-						xlink:href="https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html"
-						>https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html</link></link></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>REX</abbrev>
+			<bibliomisc><link xmlns:xlink="http://www.w3.org/1999/xlink"
+					xlink:href="https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html"
+					>https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html</link></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>8</abbrev>
 			<author>
 				<personname><surname>Rademacher</surname>
 					<firstname>Gunther</firstname></personname>
-			</author>: <title>REx Parser Generator</title>.
-				<date><?oxy-placeholder content="DD Month Year"?></date>,
-				<orgname><?oxy-placeholder content="Organization name"?></orgname>
-			<bibliomisc><link xmlns:xlink="http://www.w3.org/1999/xlink"
-						xlink:href="https://www.bottlecaps.de/rex/"
-						>https://www.bottlecaps.de/rex/</link></bibliomisc></bibliomixed>
+			</author>: <title>REx Parser Generator</title>. , <bibliomisc><link
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xlink:href="https://www.bottlecaps.de/rex/"
+					>https://www.bottlecaps.de/rex/</link></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>1</abbrev>
 			<author>
-				<personname><surname><?oxy-placeholder content="Surname"?></surname>
-					<firstname><?oxy-placeholder content="Firstname"?></firstname></personname>
-			</author>: <title>Web sockets</title>.
-				<date><?oxy-placeholder content="DD Month Year"?></date>, <orgname>BaseX</orgname>
+				<personname> </personname>
+			</author>: <title>Web sockets</title>. , <orgname>BaseX.org</orgname>
 			<bibliomisc><link xl:href="http://docs.basex.org/wiki/WebSockets#Annotations"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>2</abbrev>
 			<author>
-				<personname><surname><?oxy-placeholder content="Surname"?></surname>
-					<firstname><?oxy-placeholder content="Firstname"?></firstname></personname>
-			</author>: <title>Web permissions</title>.
-				<date><?oxy-placeholder content="DD Month Year"?></date>,
-				<orgname><?oxy-placeholder content="Organization name"?></orgname>
+				<personname> </personname>
+			</author>: <title>Web permissions</title>. , <orgname>BaseX.org</orgname>
 			<bibliomisc><link xl:href="http://docs.basex.org/wiki/Permissions#Annotations"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev xml:id="exist-templates">4</abbrev>
 			<author>
-				<personname><surname><?oxy-placeholder content="Surname"?></surname>
-					<firstname><?oxy-placeholder content="Firstname"?></firstname></personname>
-			</author>: <title>Templating</title>.
-				<date><?oxy-placeholder content="DD Month Year"?></date>, <orgname>Exist
-				db</orgname>
+				<personname> </personname>
+			</author>: <title>Templating</title>. , <orgname>Exist db</orgname>
 			<bibliomisc><link
 					xl:href="https://exist-db.org/exist/apps/demo/examples/templating/templates.html"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>5</abbrev>
 			<author>
-				<personname><surname><?oxy-placeholder content="Surname"?></surname>
-					<firstname><?oxy-placeholder content="Firstname"?></firstname></personname>
-			</author>: <title>Transaction annotations</title>.
-				<date><?oxy-placeholder content="DD Month Year"?></date>,
-				<orgname><?oxy-placeholder content="Organization name"?></orgname>
+				<personname> </personname>
+			</author>: <title>Transaction annotations</title>. , <orgname>Mark Logic</orgname>
 			<bibliomisc><link xl:href="https://docs.marklogic.com/guide/xquery/enhanced#id_94002"
+				/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>6</abbrev>
+			<author>
+				<personname><surname>Whitby</surname>
+					<firstname>Rob</firstname></personname>
+			</author>: <title>An XQuery test framework for MarkLogic </title>. ,  <bibliomisc><link
+					xl:href="https://github.com/robwhitby/xray"/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>7</abbrev>
+			<author>
+				<personname><surname>Parr</surname>
+					<firstname>Terence</firstname></personname>
+			</author>: <title>ANTLR</title>. ,  <bibliomisc><link xl:href="https://www.antlr.org/"
+				/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>9</abbrev>
+			<author>
+				<personname><surname>Candillon</surname>
+					<firstname>William </firstname></personname>
+			</author>: <title>JSONiq &amp; XQuery Quality Checker </title>. ,  <bibliomisc><link
+					xl:href="JSONiq &amp; XQuery Quality Checker "/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>10</abbrev>
+			<author>
+				<personname> </personname>
+			</author>: <title>Saxon function-annotations</title>. ,  <bibliomisc><link
+					xl:href="https://www.saxonica.com/html/documentation/functions/saxon/function-annotations.html"
+				/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>11</abbrev>
+			<author>
+				<personname> </personname>
+			</author>: <title>Mark logic annotations</title>. ,  <bibliomisc><link
+					xl:href="https://docs.marklogic.com/sc:annotations"/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>12</abbrev>
+			<author>
+				<personname> </personname>
+			</author>: <title>BaseX inspect:function-annotations</title>. , <bibliomisc><link
+					xl:href="http://docs.basex.org/wiki/Inspection_Module#inspect:function-annotations"
+				/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>14</abbrev>
+			<author>
+				<personname> </personname>
+			</author>: <title>xquerydoc</title>. ,  <bibliomisc><link
+					xl:href="https://github.com/xquery/xquerydoc"/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>13</abbrev>
+			<author>
+				<personname> </personname>
+			</author>: <title>xquery  inspection</title>. , <orgname>eXist-db</orgname>
+			<bibliomisc><link
+					xl:href="https://exist-db.org/exist/apps/fundocs/view.html?uri=http://exist-db.org/xquery/inspection"
+				/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>15</abbrev>
+			<author>
+				<personname> </personname>
+			</author>: <title>docs:generate-xqdoc</title>. , <orgname>eXist-db</orgname>
+			<bibliomisc><link
+					xl:href="http://exist-db.org/exist/apps/fundocs/view.html?uri=http://exist-db.org/xquery/docs&amp;location=/db/apps/fundocs/modules/scan.xql&amp;details=true"
+				/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>16</abbrev>
+			<author>
+				<personname> </personname>
+			</author>: <title>inspect:xqdoc</title>. , <orgname>BaseX</orgname>
+			<bibliomisc><link xl:href="http://docs.basex.org/wiki/Inspection_Module#inspect:xqdoc"
 				/></bibliomisc></bibliomixed>
 	</bibliography>
 
