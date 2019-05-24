@@ -113,16 +113,16 @@ declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
 				<para>The BaseX product has recently extended its list of built-in annotation
 					handlers with<itemizedlist>
 						<listitem>
-							<para><code>%ws</code> To define access to Web sockets [<citation>1</citation>]</para>
+							<para><code>%ws</code> To define access to Web sockets <citation>1</citation></para>
 						</listitem>
 						<listitem> 
                           <para><code>%perm</code> To define a web application permission layer
-									[<citation>2</citation>]</para>
+									<citation>2</citation></para>
                         </listitem>
 					</itemizedlist></para>
-				<para>The eXist-db product uses annotations in its html templating feature [<citation>4
-					</citation>] and the MarkLogic product uses annotations for transaction control
-						[<citation>5</citation>].</para>
+				<para>The eXist-db product uses annotations in its html templating feature <citation>4
+					</citation> and the MarkLogic product uses annotations for transaction control
+						<citation>5</citation>.</para>
 			</section>
 		</section>
 	</section>
@@ -243,7 +243,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 						<tbody>
 							<tr>
 								<td>xqDoc</td>
-								<td>[<citation>XQDOC</citation>]</td>
+								<td><citation>XQDOC</citation></td>
 								<td>Java</td>
 								<td>ANTLR 2.7</td>
 								<td>Last active 2014</td>
@@ -251,7 +251,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 							</tr>
 							<tr>
 								<td>xquery/ xquerydoc </td>
-								<td>[<citation>14</citation>]</td>
+								<td><citation>14</citation></td>
 								<td>XQuery</td>
 								<td>REX</td>
 								<td>last active 2016</td>
@@ -259,23 +259,23 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 							</tr>
 							<tr>
 								<td>eXist-db</td>
-								<td>[<citation>15</citation>]</td>
+								<td><citation>15</citation></td>
 								<td>Java</td>
 								<td>(unknown)</td>
-								<td/>
+								<td>Active</td>
 								<td>Supplied as library function.</td>
 							</tr>
 							<tr>
 								<td>BaseX</td>
-								<td>[<citation>16</citation>]</td>
+								<td><citation>16</citation></td>
 								<td>Java</td>
 								<td>(unknown)</td>
-								<td/>
+								<td>Active</td>
 								<td>Supplied as library function.</td>
 							</tr>
 							<tr>
 								<td>wcanillion/ xqlint</td>
-								<td>[<citation>9</citation>]</td>
+								<td><citation>9</citation></td>
 								<td>Javascript (Node)</td>
 								<td>REX</td>
 								<td>Dormant</td>
@@ -283,7 +283,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 							</tr>
 							<tr>
 								<td>lcahlander/ xqdoc </td>
-								<td>[<citation>17</citation>]</td>
+								<td><citation>17</citation></td>
 								<td>Java</td>
 								<td>ANTLR 4</td>
 								<td>Active</td>
@@ -297,8 +297,8 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 		<section>
 			<title>Parsers</title>
 			<para>Typically the code to implement parser is generated using a tool rather than hand written.
-				Tools that have been used for this task are ANTLR [<citation>7</citation>] and REX
-					[<citation>8</citation>]. </para>
+				Tools that have been used for this task are ANTLR <citation>7</citation> and REX
+					<citation>8</citation>. </para>
 			<para>REX has the valuable feature that its input format is EBNF. EBNF is the grammar language
 				used in the XQuery standards. It can also output parser code in many languages,
 				including XQuery 1.0 and Javascript.</para>
@@ -530,9 +530,8 @@ function _:swagger($model as map(*),
 						<para>Annotation introspection. That is the ability at runtime to determine what annotations
 							were attached to a function. This is not a feature with any
 							standardization but again is widely supported via vendor libraries. See
-							Saxon [<citation>10</citation>],  MarkLogic [<citation>11</citation>],
-							BaseX [<citation>12</citation> ],  eXist-db
-							[<citation>13</citation>].</para>
+							Saxon <citation>10</citation>, MarkLogic <citation>11</citation>, BaseX
+								<citation>12</citation> , eXist-db <citation>13</citation>.</para>
 					</listitem>
 				</orderedlist></para>
 		</section>
