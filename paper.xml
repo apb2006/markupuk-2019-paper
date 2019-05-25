@@ -590,7 +590,7 @@ function _:swagger($model as map(*),
 			<author>
 				<personname><surname>Retter</surname>
 					<firstname>Adam</firstname></personname>
-			</author>: <title>RESTXQ 1.0: RESTful Annotations for XQuery</title>. <date>21 March
+			</author><title>RESTXQ 1.0: RESTful Annotations for XQuery</title>. <date>21 March
 				2016</date>, <orgname><link xmlns:xlink="http://www.w3.org/1999/xlink"
 					xlink:href="http://exquery.org/">http://exquery.org/</link></orgname>
 			<bibliomisc><link
@@ -631,26 +631,33 @@ function _:swagger($model as map(*),
 		<bibliomixed><abbrev>1</abbrev>
 			<author>
 				<personname> </personname>
-			</author>: <title>Web sockets</title>  <orgname>BaseX.org</orgname>
+			</author>
+			<title>Web sockets</title>
+			<orgname>BaseX.org</orgname>
 			<bibliomisc><link xl:href="http://docs.basex.org/wiki/WebSockets#Annotations"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>2</abbrev>
 			<author>
 				<personname> </personname>
-			</author>: <title>Web permissions</title>  <orgname>BaseX.org</orgname>
+			</author>
+			<title>Web permissions</title>
+			<orgname>BaseX.org</orgname>
 			<bibliomisc><link xl:href="http://docs.basex.org/wiki/Permissions#Annotations"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev xml:id="exist-templates">4</abbrev>
 			<author>
 				<personname> </personname>
-			</author>: <title>Templating</title>  <orgname>Exist db</orgname>
+			</author>
+			<title>Templating</title>
+			<orgname>Exist db</orgname>
 			<bibliomisc><link
 					xl:href="https://exist-db.org/exist/apps/demo/examples/templating/templates.html"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>5</abbrev>
 			<author>
 				<personname> </personname>
-			</author>: <title>Transaction annotations</title>. , <orgname>Mark Logic</orgname>
+			</author>
+			<title>Transaction annotations</title>. , <orgname>Mark Logic</orgname>
 			<bibliomisc><link xl:href="https://docs.marklogic.com/guide/xquery/enhanced#id_94002"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>6</abbrev>
@@ -682,43 +689,43 @@ function _:swagger($model as map(*),
 		<bibliomixed><abbrev>10</abbrev>
 			<author>
 				<personname> </personname>
-			</author>: <title>Saxon function-annotations</title>. ,  <bibliomisc><link
+			</author><title>Saxon function-annotations</title>. , <bibliomisc><link
 					xl:href="https://www.saxonica.com/html/documentation/functions/saxon/function-annotations.html"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>11</abbrev>
 			<author>
 				<personname> </personname>
-			</author>: <title>Mark logic annotations</title>. ,  <bibliomisc><link
+			</author><title>Mark logic annotations</title>. , <bibliomisc><link
 					xl:href="https://docs.marklogic.com/sc:annotations"/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>12</abbrev>
 			<author>
 				<personname> </personname>
-			</author>: <title>BaseX inspect:function-annotations</title>. , <bibliomisc><link
+			</author><title>BaseX inspect:function-annotations</title>. , <bibliomisc><link
 					xl:href="http://docs.basex.org/wiki/Inspection_Module#inspect:function-annotations"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>14</abbrev>
 			<author>
 				<personname> </personname>
-			</author>: <title>xquerydoc</title>. ,  <bibliomisc><link
+			</author><title>xquerydoc</title>. , <bibliomisc><link
 					xl:href="https://github.com/xquery/xquerydoc"/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>13</abbrev>
 			<author>
 				<personname> </personname>
-			</author>: <title>xquery  inspection</title>. , <orgname>eXist-db</orgname>
+			</author><title>xquery inspection</title>. , <orgname>eXist-db</orgname>
 			<bibliomisc><link
 					xl:href="https://exist-db.org/exist/apps/fundocs/view.html?uri=http://exist-db.org/xquery/inspection"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>15</abbrev>
 			<author>
 				<personname> </personname>
-			</author>: <title>docs:generate-xqdoc</title>. , <orgname>eXist-db</orgname>
+			</author><title>docs:generate-xqdoc</title>. , <orgname>eXist-db</orgname>
 			<bibliomisc><link
 					xl:href="http://exist-db.org/exist/apps/fundocs/view.html?uri=http://exist-db.org/xquery/docs&amp;location=/db/apps/fundocs/modules/scan.xql&amp;details=true"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>16</abbrev>
 			<author>
 				<personname> </personname>
-			</author>: <title>inspect:xqdoc</title>. , <orgname>BaseX</orgname>
+			</author><title>inspect:xqdoc</title>. , <orgname>BaseX</orgname>
 			<bibliomisc><link xl:href="http://docs.basex.org/wiki/Inspection_Module#inspect:xqdoc"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>17</abbrev>
