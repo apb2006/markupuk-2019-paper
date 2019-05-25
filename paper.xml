@@ -223,8 +223,8 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 				</orderedlist></para>
 		</section>
 		<section>
-			<title>Implementations</title>
-			<para>A partial list of xqdoc implementations<table>
+			<title>XqDoc implementations</title>
+			<para>A partial list of xqDoc implementations<table>
 					<caption>xqDoc implementations</caption>
 					<col width="18%"/>
 					<col width="10%"/>
