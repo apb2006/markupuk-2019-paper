@@ -58,10 +58,10 @@
 				(e.g. a post, explanation, <emphasis>markup</emphasis>) attached to location or
 				other data." Their use in main-stream software engineering  began in 2004 when Java
 				5 introduced them via JSR 175.</para>
-			<para>Annotations were added in XQuery 3.0 in 2014. The syntax is a "%" followed by a EQName and
-				an optional set of values. The specification simply states: <quote>XQuery uses
-					annotations to declare properties associated with functions (inline or declared
-					in the prolog) and variables. </quote></para>
+			<para>Annotations were added as part of XQuery 3.0 in 2014. The syntax is a "%" followed by a
+				EQName and optionally a set of values. The specification simply states:
+					<quote>XQuery uses annotations to declare properties associated with functions
+					(inline or declared in the prolog) and variables. </quote></para>
 		</section>
 		<section>
 			<title>Use of annotations in XQuery</title>
@@ -83,13 +83,14 @@
 			<section>
 				<title>RestXQ</title>
 				<para>In 2012 Adam Retter presented a use of annotations to define a web interface
-						<citation>RESTXQ</citation> . It is based on the Java standard for RESTful
-					Web Services JAX-RS. It has since been implemented by many XQuery products as it
+						<citation>RESTXQ</citation> . It is based on the Java standard  RESTful Web
+					Services JAX-RS. It has since been implemented by many XQuery products as it
 					provides a straight forward way to wire-up XQuery code to a web interface. </para>
 				<para>A simple RESTXQ
-					example:<programlisting>module namespace page = 'http://basex.org/examples/web-page';
- 
-declare %rest:path("hello/{$who}") %rest:GET function page:hello($who) {
+					example:<programlisting>declare 
+%rest:path("hello/{$who}") 
+%rest:GET 
+function page:hello($who) {
   &lt;response>
     &lt;title>Hello { $who }!&lt;/title>
   &lt;/response>
@@ -255,7 +256,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 								<td>XQuery</td>
 								<td>REX</td>
 								<td>2016</td>
-								<td/>
+								<td>Also supplies a XProc step.</td>
 							</tr>
 							<tr>
 								<td>eXist-db</td>
@@ -279,7 +280,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 								<td>Javascript (Node)</td>
 								<td>REX</td>
 								<td>2018</td>
-								<td>use help to find xqdoc option.</td>
+								<td>use the help to find xqdoc option.</td>
 							</tr>
 							<tr>
 								<td>lcahlander/ xqdoc </td>
@@ -296,9 +297,9 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 		</section>
 		<section>
 			<title>Parsers</title>
-			<para>Typically the code to implement parser is generated using a tool rather than hand written.
-				Tools that have been used for this task are ANTLR <citation>7</citation> and REX
-					<citation>8</citation>. </para>
+			<para>Typically the code to implement a parser is generated using a tool rather than hand
+				written. Tools that have been used for the tak of parsing XQuery are ANTLR
+					<citation>7</citation> and REX <citation>8</citation>. </para>
 			<para>REX has the valuable feature that its input format is EBNF. EBNF is the grammar language
 				used in the XQuery standards. It can also output parser code in many languages,
 				including XQuery 1.0 and Javascript.</para>
@@ -424,9 +425,12 @@ map {
 		</section>
 		<section>
 			<title>Implementation</title>
-			<para>The code runs under BaseX 9.2, currently no XSLT is used by the built-in renderers. For
-				parsing it uses  the <productname>ex-xparse</productname> component
-					<citation>18</citation>. This component is a REX based parser. </para>
+			<para>The code runs under BaseX 9.2, currently no XSLT is used by the built-in renderers. </para>
+			<para>For parsing XQuery and xqDoc comments the <productname>ex-xparse</productname>
+				component <citation>18</citation> is used. This component is a REX based parser.
+					<productname>ex-parse</productname> is modelled on John Lumley's proposal for an
+				XParse Module <citation>XPARSE</citation>. It can parse a number of XQuery versions
+				and dialects.</para>
 			<para>The rendering code
 				is:<programlisting>      for $render in $global
       let $doc:= apply($render?function,[$model,$opts])
@@ -435,7 +439,7 @@ map {
                  "output":$xqo:outputs?($render?output)
                },
                
-      for $render in $module, $file at $pos in $model?files
+      for $render in $module, $file in $model?files
       (: override opts for destination path :)
       let $opts:=map:merge((
             map{
@@ -527,9 +531,9 @@ map {
 %xqdoca:module("module","Html5 report on the XQuery source")
 %xqdoca:output("index.html","html5")
 function xqh:xqdoc-html2($file as map(*),
-                            $opts as map(*),
-                            $model as map(*)
-                            )
+                         $opts as map(*),
+                         $model as map(*)
+                        )
 as document-node() </programlisting>
 			</para>
 			<para>
@@ -538,8 +542,8 @@ as document-node() </programlisting>
                 "Swagger file (JSON format) from restxq annotations.")
 %Q{https://github.com/Quodatum/xqdoca}output("swagger.json","json") 
 function _:swagger($model as map(*),
-                            $opts as map(*)
-                            )                           
+                   $opts as map(*)
+                  )                           
 {</programlisting>
 			</para>
 			<para>This requires two features to be provided by the XQuery environment:<orderedlist>
@@ -561,9 +565,12 @@ function _:swagger($model as map(*),
 	</section>
 	
 	<section>
-		<title>Conclusion</title>
-		<para>I hope that this project may be a value for those working with XQuery code and perhaps
-			inspire some new uses for annotations. </para>
+		<title>Conclusions</title>
+		<para>The combination of Maps with the "? lookup operator and XML with XPath provides a powerful
+			programming environment. The use of annotation driven plug-in modules provides a clean
+			separation of concerns between the driving  code and task at hand.</para>
+		<para>I hope that this project may be of value for those working with XQuery code and
+			perhaps inspire some new uses for annotations. </para>
 		<para>For code and issues see <link xmlns:xlink="http://www.w3.org/1999/xlink"
 				xlink:href="https://github.com/Quodatum/xqdoca"
 				>https://github.com/Quodatum/xqdoca</link>. </para>
@@ -589,7 +596,7 @@ function _:swagger($model as map(*),
 			<bibliomisc><link
 					xl:href="http://exquery.github.io/exquery/exquery-restxq-specification/restxq-1.0-specification.html"
 				/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev> JAX-RS API</abbrev>
+		<bibliomixed><abbrev> JAX-RS</abbrev>
 			<author>
 				<personname><surname>Bucek</surname>
 					<firstname>Pavel</firstname></personname>
@@ -597,8 +604,8 @@ function _:swagger($model as map(*),
 				Specification</title>. <date>22 Aug 2017</date>, <orgname>Java Community Process
 				(JCP)</orgname>
 			<bibliomisc><link xmlns:xlink="http://www.w3.org/1999/xlink"
-						xlink:href="https://jcp.org/en/jsr/detail?id=370"
-						>https://jcp.org/en/jsr/detail?id=370</link></bibliomisc></bibliomixed>
+					xlink:href="https://jcp.org/en/jsr/detail?id=370"
+					>https://jcp.org/en/jsr/detail?id=370</link></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>XQDOC</abbrev>
 			<author>
 				<personname><surname>McBeath</surname>
@@ -620,30 +627,23 @@ function _:swagger($model as map(*),
 			<bibliomisc><link xmlns:xlink="http://www.w3.org/1999/xlink"
 					xlink:href="https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html"
 					>https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html</link></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>8</abbrev>
-			<author>
-				<personname><surname>Rademacher</surname>
-					<firstname>Gunther</firstname></personname>
-			</author>: <title>REx Parser Generator</title>. , <bibliomisc><link
-					xmlns:xlink="http://www.w3.org/1999/xlink"
-					xlink:href="https://www.bottlecaps.de/rex/"
-					>https://www.bottlecaps.de/rex/</link></bibliomisc></bibliomixed>
+		
 		<bibliomixed><abbrev>1</abbrev>
 			<author>
 				<personname> </personname>
-			</author>: <title>Web sockets</title>. , <orgname>BaseX.org</orgname>
+			</author>: <title>Web sockets</title>  <orgname>BaseX.org</orgname>
 			<bibliomisc><link xl:href="http://docs.basex.org/wiki/WebSockets#Annotations"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>2</abbrev>
 			<author>
 				<personname> </personname>
-			</author>: <title>Web permissions</title>. , <orgname>BaseX.org</orgname>
+			</author>: <title>Web permissions</title>  <orgname>BaseX.org</orgname>
 			<bibliomisc><link xl:href="http://docs.basex.org/wiki/Permissions#Annotations"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev xml:id="exist-templates">4</abbrev>
 			<author>
 				<personname> </personname>
-			</author>: <title>Templating</title>. , <orgname>Exist db</orgname>
+			</author>: <title>Templating</title>  <orgname>Exist db</orgname>
 			<bibliomisc><link
 					xl:href="https://exist-db.org/exist/apps/demo/examples/templating/templates.html"
 				/></bibliomisc></bibliomixed>
@@ -665,6 +665,14 @@ function _:swagger($model as map(*),
 					<firstname>Terence</firstname></personname>
 			</author>: <title>ANTLR</title>. ,  <bibliomisc><link xl:href="https://www.antlr.org/"
 				/></bibliomisc></bibliomixed>
+      <bibliomixed><abbrev>8</abbrev>
+			<author>
+				<personname><surname>Rademacher</surname>
+					<firstname>Gunther</firstname></personname>
+			</author>: <title>REx Parser Generator</title>. , <bibliomisc><link
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xlink:href="https://www.bottlecaps.de/rex/"
+					>https://www.bottlecaps.de/rex/</link></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>9</abbrev>
 			<author>
 				<personname><surname>Candillon</surname>
