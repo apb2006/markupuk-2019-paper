@@ -221,79 +221,79 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 							reading such as HTML. Typically using XSLT.</para>
 					</listitem>
 				</orderedlist></para>
-			<section>
-				<title>Implementations</title>
-				<para>A partial list of xqdoc implementations<table>
-						<caption>xqDoc implementations</caption>
-						<col width="18%"/>
-						<col width="10%"/>
-						<col width="15%"/>
-						<col/>
-						<col/>
-						<col width="30%"/>
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Ref</th>
-								<th>Language</th>
-								<th>Parser style</th>
-								<th>Last update</th>
-								<th>Notes</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>xqDoc</td>
-								<td><citation>XQDOC</citation></td>
-								<td>Java</td>
-								<td>ANTLR 2.7</td>
-								<td>2014</td>
-								<td/>
-							</tr>
-							<tr>
-								<td>xquery/ xquerydoc </td>
-								<td><citation>14</citation></td>
-								<td>XQuery</td>
-								<td>REX</td>
-								<td>2016</td>
-								<td>Also supplies a XProc step.</td>
-							</tr>
-							<tr>
-								<td>eXist-db</td>
-								<td><citation>15</citation></td>
-								<td>Java</td>
-								<td>(unknown)</td>
-								<td>Active</td>
-								<td>Supplied as library function.</td>
-							</tr>
-							<tr>
-								<td>BaseX</td>
-								<td><citation>16</citation></td>
-								<td>Java</td>
-								<td>(unknown)</td>
-								<td>Active</td>
-								<td>Supplied as library function.</td>
-							</tr>
-							<tr>
-								<td>wcanillion/ xqlint</td>
-								<td><citation>9</citation></td>
-								<td>Javascript (Node)</td>
-								<td>REX</td>
-								<td>2018</td>
-								<td>use the help to find xqdoc option.</td>
-							</tr>
-							<tr>
-								<td>lcahlander/ xqdoc </td>
-								<td><citation>17</citation></td>
-								<td>Java</td>
-								<td>ANTLR 4</td>
-								<td>Active</td>
-								<td/>
-							</tr>
-						</tbody>
-					</table></para>
-				<para/>
-			</section>
+		</section>
+		<section>
+			<title>Implementations</title>
+			<para>A partial list of xqdoc implementations<table>
+					<caption>xqDoc implementations</caption>
+					<col width="18%"/>
+					<col width="10%"/>
+					<col width="15%"/>
+					<col/>
+					<col/>
+					<col width="30%"/>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Ref</th>
+							<th>Language</th>
+							<th>Parser style</th>
+							<th>Last update</th>
+							<th>Notes</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>xqDoc</td>
+							<td><citation>XQDOC</citation></td>
+							<td>Java</td>
+							<td>ANTLR 2.7</td>
+							<td>2014</td>
+							<td/>
+						</tr>
+						<tr>
+							<td>xquery/ xquerydoc </td>
+							<td><citation>14</citation></td>
+							<td>XQuery</td>
+							<td>REX</td>
+							<td>2016</td>
+							<td>Also supplies a XProc step.</td>
+						</tr>
+						<tr>
+							<td>eXist-db</td>
+							<td><citation>15</citation></td>
+							<td>Java</td>
+							<td>(unknown)</td>
+							<td>Active</td>
+							<td>Supplied as library function.</td>
+						</tr>
+						<tr>
+							<td>BaseX</td>
+							<td><citation>16</citation></td>
+							<td>Java</td>
+							<td>(unknown)</td>
+							<td>Active</td>
+							<td>Supplied as library function.</td>
+						</tr>
+						<tr>
+							<td>wcanillion/ xqlint</td>
+							<td><citation>9</citation></td>
+							<td>Javascript (Node)</td>
+							<td>REX</td>
+							<td>2018</td>
+							<td>use the help to find xqdoc option.</td>
+						</tr>
+						<tr>
+							<td>lcahlander/ xqdoc </td>
+							<td><citation>17</citation></td>
+							<td>Java</td>
+							<td>ANTLR 4</td>
+							<td>Active</td>
+							<td/>
+						</tr>
+					</tbody>
+				</table></para>
+			<para/>
 		</section>
 		<section>
 			<title>Parsers</title>
