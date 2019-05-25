@@ -177,7 +177,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 
           <section>
 				<title>Working with xqDoc documents</title>
-				<para>The following features should be born in mind:</para>
+				<para>The following features should be borne in mind:</para>
 				<para>Function names may be referenced in XQuery in a number of different styles.For
 				example:</para>
 				<para>
