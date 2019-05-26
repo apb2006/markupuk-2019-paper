@@ -170,7 +170,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 			<para>
 				<inlinemediaobject>
 					<imageobject>
-						<imagedata fileref="xqdoc-schema.png" width="100%" scalefit="1"/>
+						<imagedata fileref="images/xqdoc-schema.png" width="100%" scalefit="1"/>
 					</imageobject>
 				</inlinemediaobject></para>
 		</section>
@@ -318,7 +318,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 			<para>The model:</para>
 			<para><inlinemediaobject>
 					<imageobject>
-						<imagedata fileref="model.png" width="100%" scalefit="1"/>
+						<imagedata fileref="images/model.png" width="100%" scalefit="1"/>
 					</imageobject>
 				</inlinemediaobject></para>
 			<para>Another map <code>$options</code> holds configuration options to apply to the run.
@@ -458,17 +458,17 @@ map {
 			<title>Sample outputs</title>
 			<para><inlinemediaobject>
 					<imageobject>
-						<imagedata fileref="xqdoca-funs.png" scalefit="1" width="100%"/>
+						<imagedata fileref="images/xqdoca-funs.png" scalefit="1" width="100%"/>
 					</imageobject>
 				</inlinemediaobject></para>
 			<para><inlinemediaobject>
 					<imageobject>
-						<imagedata fileref="modules.png" scalefit="1" width="100%"/>
+						<imagedata fileref="images/modules.png" scalefit="1" width="100%"/>
 					</imageobject>
 				</inlinemediaobject></para>
 			<para><inlinemediaobject>
 					<imageobject>
-						<imagedata fileref="xqdoca-rest.png" width="100%" scalefit="1"/>
+						<imagedata fileref="images/xqdoca-rest.png" width="100%" scalefit="1"/>
 					</imageobject>
 				</inlinemediaobject></para>
 		</section>
