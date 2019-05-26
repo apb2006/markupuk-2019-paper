@@ -340,8 +340,8 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 				<para>Renderers can be viewed as a map with the following keys:<table>
 						<caption>Renderer properties</caption>
 						<col width="20%"/>
+						<col width="20%"/>
 						<col/>
-						<col width="40%"/>
 						<thead>
 							<tr>
 								<th>Key</th>
