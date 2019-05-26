@@ -570,8 +570,8 @@ function _:swagger($model as map(*),
 		<para>The combination of Maps with the "? lookup operator and XML with XPath provides a powerful
 			programming environment. The use of annotation driven plug-in modules provides a clean
 			separation of concerns between the driving  code and task at hand.</para>
-		<para>I hope that this project may be of value for those working with XQuery code and
-			perhaps inspire some new uses for annotations. </para>
+		<para>I hope that this paper may be of value for those working with XQuery code and perhaps
+			inspire some new uses for annotations. </para>
 		<para>For code and issues see <link xmlns:xlink="http://www.w3.org/1999/xlink"
 				xlink:href="https://github.com/Quodatum/xqdoca"
 				>https://github.com/Quodatum/xqdoca</link>. </para>
