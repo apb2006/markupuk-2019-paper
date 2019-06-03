@@ -25,53 +25,79 @@
 		</keywordset>
 		<abstract>
 			<para>The paper describes an implementation of an xqDoc.org documentation generator. A focus of
-				this implementation is XQuery annotation support. In 2014 the xqDoc schema was
-				updated to include markup to capture XQuery annotations, however existing renderers
-				have often not been updated to make use of this. A major driver for annotation
-				support is documenting XQuery web applications built using the RESTXQ standard.
-				RESTXQ defines a standard set of XQuery annotations that can be used to define
-				RESTful Web Services from XQuery. Annotations are also being used to define
-				frameworks for unit testing, user permissioning and web socket interfaces.
-				Annotations are code markup that the runtime environment may choose to use to
-				wire-in additional external functionality to XQuery applications. The xqdoc
-				implementation is open source. It is largely written in XQuery and runs with recent
-				versions of BaseX. It generates static, stand alone HTML5 and XML and JSON output. </para>
+        this implementation is XQuery annotation support. In
+        2014<?oxy_insert_start author="Commenter" timestamp="20190528T174958-0800"?>,<?oxy_insert_end?>
+        the xqDoc schema was updated to include markup to capture XQuery
+        annotations<?oxy_insert_start author="Commenter" timestamp="20190528T175020-0800"?>;<?oxy_insert_end?><?oxy_delete author="Commenter" timestamp="20190528T175021-0800" content=","?>
+        however<?oxy_insert_start author="Commenter" timestamp="20190528T175024-0800"?>,<?oxy_insert_end?>
+        existing renderers have often not been updated to make use of this. A major driver for
+        annotation support is documenting XQuery web applications built using the RESTXQ standard.
+        RESTXQ defines a standard set of XQuery annotations that can be used to define RESTful Web
+        Services from XQuery. Annotations are also being used to define frameworks for unit testing,
+        user permissioning and web socket interfaces. Annotations are code markup that the runtime
+        environment may choose to use to wire-in additional external functionality to XQuery
+        applications.
+        <?oxy_comment_start author="Commenter" timestamp="20190528T193040-0800" comment="Do you mean the xqDocA implementation specifically? I wasn&apos;t sure, so I didn&apos;t make that change."?>The
+        xq<?oxy_delete author="Commenter" timestamp="20190528T192721-0800" content="d"?><?oxy_insert_start author="Commenter" timestamp="20190528T192721-0800"?>D<?oxy_insert_end?>oc
+        implementation<?oxy_comment_end?> is open source. It is largely written in XQuery and runs
+        with recent versions of BaseX. It generates static,
+        stand<?oxy_delete author="Commenter" timestamp="20190528T175303-0800" content=" "?>alone
+        HTML5 and XML and JSON output. </para>
 			<para>The included XQuery library modules can also be used to assist in the generation
-				other related documentation artefacts. In the case of RESTXQ these could be the
-				generation of openAPI(swagger) and WADL documents.</para>
+        <?oxy_insert_start author="Commenter" timestamp="20190528T175318-0800"?>of
+        <?oxy_insert_end?>other related documentation artefacts. In the case of
+        RESTXQ<?oxy_insert_start author="Commenter" timestamp="20190528T175337-0800"?>,<?oxy_insert_end?>
+        these could be the generation of openAPI<?oxy_insert_start author="Commenter" timestamp="20190529T081557-0400"?>
+        <?oxy_insert_end?>(<?oxy_delete author="Commenter" timestamp="20190529T081559-0400" content="s"?><?oxy_insert_start author="Commenter" timestamp="20190529T081559-0400"?>S<?oxy_insert_end?>wagger)
+        and WADL documents.</para>
 		</abstract>
 	</info>
 	<section>
 		<title>Introduction</title>
-		<para>Making sense of a XQuery code base can be hard, even if you have written it yourself. It can
-			be difficult to see how the parts fit together. This paper describes an attempt to build
-			a documentation tool to help with that process with the particular goal of incorporating
+		<para>Making sense of
+			a<?oxy_insert_start author="Commenter" timestamp="20190528T175421-0800"?>n<?oxy_insert_end?>
+			XQuery code base can be hard, even if you have written it yourself. It can be difficult
+			to see how the parts fit together. This paper describes an attempt to build a
+			documentation tool to help with that process with the particular goal of incorporating
 			information from XQuery annotations. The paper looks at the history of annotations and
 			the history of XQuery documentation tools. </para>
 	</section>
 	<section>
 		<title>Annotations?</title>
-		<para>What are they, and how are they used.</para>
+		<para>What are they, and how are they
+			used<?oxy_insert_start author="Commenter" timestamp="20190528T175551-0800"?>?<?oxy_insert_end?><?oxy_delete author="Commenter" timestamp="20190528T175550-0800" content="."?></para>
 		<section>
 			<title>What are annotations?</title>
-			<para> Wikipedia defines an <emphasis role="bold">annotation</emphasis> as "a metadatum
-				(e.g. a post, explanation, <emphasis>markup</emphasis>) attached to location or
-				other data." Their use in main-stream software engineering  began in 2004 when Java
-				5 introduced them via JSR 175.</para>
-			<para>Annotations were added as part of XQuery 3.0 in 2014. The syntax is a "%" followed by a
+			<para> Wikipedia defines an <emphasis role="bold">annotation</emphasis> as
+					<?oxy_delete author="Commenter" timestamp="20190528T175815-0800" content="&quot;"?><?oxy_insert_start author="Commenter" timestamp="20190528T175811-0800" type="surround"?><quote><?oxy_insert_end?>a
+					metadatum (e.g. a post, explanation, <emphasis>markup</emphasis>) attached to
+					location or other
+				data.</quote><?oxy_delete author="Commenter" timestamp="20190528T175818-0800" content="&quot;"?>
+				Their use in
+				main<?oxy_delete author="Commenter" timestamp="20190528T175636-0800" content="-"?>stream
+				software engineering began in 2004 when Java 5 introduced them via JSR 175.</para>
+			<para>Annotations were added as part of XQuery 3.0 in 2014. The syntax is a "%" followed by
+				a<?oxy_insert_start author="Commenter" timestamp="20190528T175702-0800"?>n<?oxy_insert_end?>
 				EQName and optionally a set of values. The specification simply states:
 					<quote>XQuery uses annotations to declare properties associated with functions
 					(inline or declared in the prolog) and variables. </quote></para>
 		</section>
 		<section>
 			<title>Use of annotations in XQuery</title>
-			<para>The following sections show some applications of XQuery annotations, often they
-				mirror similar usage in Java frameworks.</para>
+			<para>The following sections show some applications of XQuery annotations,
+				<?oxy_insert_start author="Commenter" timestamp="20190528T175943-0800"?>which
+				<?oxy_insert_end?>often
+				<?oxy_delete author="Commenter" timestamp="20190528T175946-0800" content="they "?>mirror
+				similar usage in Java frameworks.</para>
 			<section>
 				<title>Built-in annotations</title>
-				<para>The XQuery 3.1 standard defines only two annotations:<code>%private</code>
-					<code>%public</code>.  XQuery 3.0 Update only one <code>%updating</code>. It
-					also states:</para>
+				<para>The XQuery 3.1 standard defines only two annotations:<?oxy_insert_start author="Commenter" timestamp="20190528T180007-0800"?>
+					<?oxy_insert_end?><code>%private</code>
+					<?oxy_insert_start author="Commenter" timestamp="20190528T180021-0800"?>and
+						<?oxy_insert_end?><code>%public</code>. XQuery 3.0 Update
+					<?oxy_insert_start author="Commenter" timestamp="20190528T180039-0800"?>defines
+					<?oxy_insert_end?>only one<?oxy_insert_start author="Commenter" timestamp="20190528T180045-0800"?>:<?oxy_insert_end?>
+					<code>%updating</code>. It also states:</para>
 				<para><quote>Implementations may define further annotations, whose behaviour is
 						implementation-defined. For instance, if the <code>eg</code> prefix is bound
 						to a namespace associated with a particular implementation, it could define
@@ -82,10 +108,15 @@
 			</section>
 			<section>
 				<title>RestXQ</title>
-				<para>In 2012 Adam Retter presented a use of annotations to define a web interface
-						<citation>RESTXQ</citation> . It is based on the Java standard  RESTful Web
-					Services JAX-RS. It has since been implemented by many XQuery products as it
-					provides a straight forward way to wire-up XQuery code to a web interface. </para>
+				<para>In
+					2012<?oxy_insert_start author="Commenter" timestamp="20190528T180139-0800"?>,<?oxy_insert_end?>
+					Adam Retter presented a use of annotations to define a web interface
+						<citation>RESTXQ</citation><?oxy_delete author="Commenter" timestamp="20190528T180159-0800" content=" "?>.
+					It is based on the Java standard RESTful Web Services JAX-RS.
+					<?oxy_delete author="Commenter" timestamp="20190528T180224-0800" content="It"?><?oxy_insert_start author="Commenter" timestamp="20190528T180224-0800"?>RESTXQ<?oxy_insert_end?>
+					has since been implemented by many XQuery products as it provides a
+					straight<?oxy_delete author="Commenter" timestamp="20190528T180231-0800" content=" "?>forward
+					way to wire-up XQuery code to a web interface. </para>
 				<para>A simple RESTXQ
 					example:<programlisting>declare 
 %rest:path("hello/{$who}") 
@@ -95,19 +126,28 @@ function page:hello($who) {
     &lt;title>Hello { $who }!&lt;/title>
   &lt;/response>
 };  </programlisting></para>
-				<para>Here the <code>%rest:path</code> annotation specifies a url and the
-						<code>rest:GET</code> specifies an HTTP method. In a suitable Web server
-					environment a request for "/hello/fred" will be wired up to invoke the
+				<para>Here the <code>%rest:path</code> annotation specifies a
+					<?oxy_delete author="Commenter" timestamp="20190528T180322-0800" content="url"?><?oxy_insert_start author="Commenter" timestamp="20190528T180322-0800"?>URL<?oxy_insert_end?>
+					and the
+						<code><?oxy_insert_start author="Commenter" timestamp="20190528T180353-0800"?>%<?oxy_insert_end?>rest:GET</code>
+					specifies an HTTP method. In a suitable Web server
+					environment<?oxy_insert_start author="Commenter" timestamp="20190528T180336-0800"?>,<?oxy_insert_end?>
+					a request for "/hello/fred" will be wired up to invoke the
 						<code>page:hello</code> function with the argument "fred". The result of the
 					function will be returned by web server.</para>
 			</section>
 			<section>
 				<title>Unit testing</title>
-				<para>Unit testing is another popular domain for annotations. In the Java world JUnit has long
-					made use of annotations. Many XQuery vendors provide a feature where by tests
-					can be run by invoking a command that scans a directory for modules containing
-					functions marked with a custom annotation for example<code>!unit:test</code>. An
-					example of this is XRAY for Mark Logic <citation>6</citation>.</para>
+				<para>Unit testing is another popular domain for annotations. In the Java
+					world<?oxy_insert_start author="Commenter" timestamp="20190528T180423-0800"?>,<?oxy_insert_end?>
+					JUnit has long made use of annotations. Many XQuery vendors provide a feature
+					where<?oxy_delete author="Commenter" timestamp="20190528T180506-0800" content=" "?>by
+					tests can be run by invoking a command that scans a directory for modules
+					containing functions marked with a custom annotation<?oxy_insert_start author="Commenter" timestamp="20190528T180638-0800"?>,<?oxy_insert_end?>
+					<?oxy_delete author="Commenter" timestamp="20190528T180633-0800" content="for example"?><?oxy_insert_start author="Commenter" timestamp="20190528T180633-0800"?>such
+					as <?oxy_insert_end?><code>!unit:test</code>. An example of this is XRAY for
+					<?oxy_comment_start author="Commenter" timestamp="20190528T180956-0800" comment="Is it Mark Logic or MarkLogic? Both forms appear multiple times in this paper."?>Mark Logic<?oxy_comment_end?>
+					<citation>6</citation>.</para>
 			</section>
 			<section>
 				<title>Other applications</title>
@@ -121,9 +161,10 @@ function page:hello($who) {
 									<citation>2</citation></para>
 						</listitem>
 					</itemizedlist></para>
-				<para>The eXist-db product uses annotations in its html templating feature
-						<citation>4</citation> and the MarkLogic product uses annotations for
-					transaction control <citation>5</citation>.</para>
+				<para>The eXist-db product uses annotations in its
+					<?oxy_delete author="Commenter" timestamp="20190528T181045-0800" content="html"?><?oxy_insert_start author="Commenter" timestamp="20190528T181045-0800"?>HTML<?oxy_insert_end?>
+					templating feature <citation>4</citation> and the MarkLogic product uses
+					annotations for transaction control <citation>5</citation>.</para>
 			</section>
 		</section>
 	</section>
@@ -133,13 +174,22 @@ function page:hello($who) {
 		<section>
 			<title>The xqDoc format</title>
 			<para>In 2002, Darin McBeath realised the need for a tool for generating documentation from
-				XQuery sources and created xqDoc web site <citation>XQDOC</citation>. This defines
-				an XML schema for the namespace http://www.xqdoc.org/1.0. This provides a vocabulary
-				to describe an XQuery module and a reference JAVA implementation. </para>
-			<para>To get full value from <productname>xqDoc</productname> the source should contain
-				comments formatted according to certain conventions in a similar fashion to Javadoc
-				comments. See example
-				below<programlisting>(:~
+        XQuery sources and
+        created<?oxy_insert_start author="Commenter" timestamp="20190528T181115-0800"?>
+        the<?oxy_insert_end?> xqDoc
+        web<?oxy_delete author="Commenter" timestamp="20190528T193228-0800" content=" "?>site
+          <citation>XQDOC</citation>. This
+        <?oxy_insert_start author="Commenter" timestamp="20190528T181134-0800"?>site
+        <?oxy_insert_end?>defines an XML schema for the namespace http://www.xqdoc.org/1.0. This
+        <?oxy_insert_start author="Commenter" timestamp="20190528T181137-0800"?>schema
+        <?oxy_insert_end?>provides a vocabulary to describe an XQuery module and a reference
+        J<?oxy_delete author="Commenter" timestamp="20190528T181209-0800" content="AVA"?><?oxy_insert_start author="Commenter" timestamp="20190528T181209-0800"?>ava<?oxy_insert_end?>
+        implementation. </para>
+			<para>To get full value from
+				<productname>xqDoc</productname><?oxy_insert_start author="Commenter" timestamp="20190528T181219-0800"?>,<?oxy_insert_end?>
+				the source should contain comments formatted according to certain conventions in a
+				similar fashion to Javadoc comments. See example
+				below<?oxy_insert_start author="Commenter" timestamp="20190528T181233-0800"?>:<?oxy_insert_end?><programlisting>(:~
 : The controller for constructing the xqDoc HTML information for
 : the specified library module. The following information for
 : each library module will be generated.
@@ -163,9 +213,10 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 		</section>
 		<section>
 			<title>Schema updates</title>
-				<para><productname>xqDoc</productname> was initially written to target XQuery 1.0.
-					In 2014 the schema was extended to capture XQuery annotation information defined
-					in XQuery 3.0. The figure below highlights the addition: </para>
+				<para><productname>xqDoc</productname> was initially written to target XQuery 1.0. In
+				2014<?oxy_insert_start author="Commenter" timestamp="20190528T181334-0800"?>,<?oxy_insert_end?>
+				the schema was extended to capture XQuery annotation information defined in XQuery
+				3.0. The figure below highlights the addition: </para>
 		
 			<para>
 				<inlinemediaobject>
@@ -178,53 +229,75 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
           <section>
 				<title>Working with xqDoc documents</title>
 				<para>The following features should be borne in mind:</para>
-				<para>Function names may be referenced in XQuery in a number of different styles.For
-				example:</para>
+				<para>Function names may be referenced in XQuery in a number of different styles.<?oxy_insert_start author="Commenter" timestamp="20190528T193335-0800"?>
+				<?oxy_insert_end?>For example:</para>
 				<para>
 					<itemizedlist>
 						<listitem>
 							<para><code>abc:foo(42)</code> or <code>prefix2:foo(42)</code></para>
 						</listitem>
 						<listitem>
-							<para><code>foo(42)</code> (: with a default function namespace
-								definition :)</para>
+							<para><code>foo(42)</code><?oxy_insert_start author="Commenter" timestamp="20190528T181652-0800" type="surround"?><code><?oxy_insert_end?>
+								(: with a default function namespace definition :)</code></para>
 						</listitem>
 						<listitem>
 							<para><code>Q{http://nowhere.com/funs}foo(42)</code></para>
 						</listitem>
 					</itemizedlist>
 				</para>
-				<para>Most <productname>xqDoc</productname> implementations return these as coded rather than
-				normalising them to a standard form. This can make finding cross-references more
-				complex.</para>
-				<para>Static context: Some implementations allow their library modules to be used
-					without explicit import module statements. </para>
-				<para>If these imports are not listed in the generated <productname>xqDoc</productname> it can
-				be difficult to resolve some names. This suggests an
+				<para>Most <productname>xqDoc</productname> implementations return these as
+				coded<?oxy_insert_start author="Commenter" timestamp="20190528T181731-0800"?>,<?oxy_insert_end?>
+				rather than normalising them to a standard form. This can make finding
+				cross-references more complex.</para>
+				<para>Static context<?oxy_delete author="Commenter" timestamp="20190528T193400-0800" content=":"?><?oxy_insert_start author="Commenter" timestamp="20190528T193400-0800"?>
+				<?oxy_comment_start author="Commenter" timestamp="20190528T193520-0800" comment="I was trying to change the lead-in, &quot;Static context,&quot; into a full sentence. You might want a different sentence. If you feel strongly about &quot;Static context:&quot; by itself, just reject this edit."?>can
+				also add complexity<?oxy_comment_end?>.<?oxy_insert_end?> Some implementations allow
+				their library modules to be used without explicit
+					<?oxy_insert_start author="Commenter" timestamp="20190528T181853-0800" type="surround"?><code><?oxy_insert_end?>import
+					module</code> statements. </para>
+				<para>If these imports are not listed in the generated
+				<productname>xqDoc</productname><?oxy_insert_start author="Commenter" timestamp="20190528T181808-0800"?>,<?oxy_insert_end?>
+				it can be difficult to resolve some names. This suggests an
 					<productname>xqDoc</productname> generator needs information about the target
-				platform both for it's grammar and it's static context.</para>
+				platform both for
+				it<?oxy_delete author="Commenter" timestamp="20190528T181920-0800" content="&apos;"?>s
+				grammar and
+				it<?oxy_delete author="Commenter" timestamp="20190528T181924-0800" content="&apos;"?>s
+				static context.</para>
 			</section>
             <section>
 			<title>Components</title>
 			<para>Implementations of <productname>xqDoc</productname>  have three main components:<orderedlist>
 					<listitem>
-						<para>A component to parse the XQuery source code and generate the
-							corresponding <productname>xqDoc</productname> XML elements for
-							functions and variable etc.</para>
+						<para>A component to parse the XQuery source code and generate the corresponding
+								<productname>xqDoc</productname> XML elements for functions and
+							variable<?oxy_insert_start author="Commenter" timestamp="20190528T182144-0800"?>s,<?oxy_insert_end?>
+							etc.</para>
 					</listitem>
 					<listitem>
-						<para>A component to parse xqdoc style comments <code>(:~ … :)</code> into
-							the corresponding xqDoc </para>
+						<para>A component to parse
+							xq<?oxy_delete author="Commenter" timestamp="20190528T182202-0800" content="d"?><?oxy_insert_start author="Commenter" timestamp="20190528T182202-0800"?>D<?oxy_insert_end?>oc
+							style comments <code>(:~ … :)</code> into the corresponding
+							xqDoc<?oxy_insert_start author="Commenter" timestamp="20190528T182322-0800"?>.<?oxy_insert_end?>
+						</para>
 					</listitem>
 					<listitem>
-						<para>Optionally a means to render the resulting XML into formats for
-							reading such as HTML. Typically using XSLT.</para>
+						<para>Optionally<?oxy_insert_start author="Commenter" timestamp="20190528T182233-0800"?>,<?oxy_insert_end?>
+							a means to render the resulting XML into formats for
+							reading<?oxy_insert_start author="Commenter" timestamp="20190528T182240-0800"?>,<?oxy_insert_end?>
+							such as HTML.
+							T<?oxy_insert_start author="Commenter" timestamp="20190528T182255-0800"?>his
+							part t<?oxy_insert_end?>ypically
+							us<?oxy_delete author="Commenter" timestamp="20190528T182259-0800" content="ing"?><?oxy_insert_start author="Commenter" timestamp="20190528T182259-0800"?>es<?oxy_insert_end?>
+							XSLT.</para>
 					</listitem>
 				</orderedlist></para>
 		</section>
 		<section>
 			<title>XqDoc implementations</title>
-			<para>A partial list of xqDoc implementations<table>
+			<para>A partial list of xqDoc
+				implementations<?oxy_insert_start author="Commenter" timestamp="20190528T182342-0800"?>
+				is below.<?oxy_insert_end?><table>
 					<caption>xqDoc implementations</caption>
 					<col width="15%"/>
 					<col width="15%"/>
@@ -253,11 +326,13 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 						</tr>
 						<tr>
 							<td>xquery/ xquerydoc </td>
-							<td><citation>14</citation></td>
+							<td><citation><?oxy_delete author="Commenter" timestamp="20190528T200634-0800" content="14"?><?oxy_insert_start author="Commenter" timestamp="20190528T200634-0800"?>13<?oxy_insert_end?></citation></td>
 							<td>XQuery</td>
 							<td>REX</td>
 							<td>2016</td>
-							<td>Also supplies a XProc step.</td>
+							<td>Also supplies
+								a<?oxy_insert_start author="Commenter" timestamp="20190528T182459-0800"?>n<?oxy_insert_end?>
+								XProc step.</td>
 						</tr>
 						<tr>
 							<td>eXist-db</td>
@@ -281,7 +356,8 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 							<td>Javascript (Node)</td>
 							<td>REX</td>
 							<td>2018</td>
-							<td>use the help to find xqdoc option.</td>
+							<td><?oxy_delete author="Commenter" timestamp="20190528T182622-0800" content="u"?><?oxy_insert_start author="Commenter" timestamp="20190528T182622-0800"?>U<?oxy_insert_end?>se
+								the help to find xqdoc option.</td>
 						</tr>
 						<tr>
 							<td>lcahlander/ xqdoc </td>
@@ -293,46 +369,59 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 						</tr>
 					</tbody>
 				</table></para>
-			<para/>
+			<?oxy_comment_start author="Commenter" timestamp="20190528T182719-0800" comment="Not sure if this empty para is here on purpose to include extra white space under the table."?>
+			<para/><?oxy_comment_end?>
 		</section>
 		<section>
 			<title>Parsers</title>
-			<para>Typically the code to implement a parser is generated using a tool rather than hand
-				written. Tools that have been used for the task of parsing XQuery are ANTLR
+			<para>Typically<?oxy_insert_start author="Commenter" timestamp="20190528T182731-0800"?>,<?oxy_insert_end?>
+				the code to implement a parser is generated using a tool rather than hand written.
+				Tools that have been used for the task of parsing XQuery are ANTLR
 					<citation>7</citation> and REX <citation>8</citation>. </para>
 			<para>REX has the valuable feature that its input format is EBNF. EBNF is the grammar language
-				used in the XQuery standards. It can also output parser code in many languages,
-				including XQuery 1.0 and Javascript.</para>
+				used in the XQuery standards.
+				<?oxy_comment_start author="Commenter" timestamp="20190528T182853-0800" comment="What is &quot;It&quot;, REX or EBNF?"?>It<?oxy_comment_end?>
+				can also output parser code in many languages, including XQuery 1.0 and
+				Javascript.</para>
 		</section>
 	</section>
 	<section>
 		<title>Introducing xqDocA</title>
-		<para>xqDocA was written to show the connections between various modules and perspectives onto an
-			XQuery code base. </para>
+		<para>xqDocA was written to show the connections between various
+			modules<?oxy_delete author="Commenter" timestamp="20190528T183247-0800" content=" and"?><?oxy_insert_start author="Commenter" timestamp="20190528T183247-0800"?>,
+			<?oxy_comment_start author="Commenter" timestamp="20190528T183355-0800" comment="This change was to avoid the potential misreading of the sentence as: ...show the connections between (a) various modules and (b) perspectives... I didn&apos;t think that was what you meant."?>as
+			well as<?oxy_comment_end?><?oxy_insert_end?> perspectives onto an XQuery code base. </para>
 		<section>
 			<title>Overview</title>
-			<para>Given a list of the files to process...</para>
-			<para> It creates an XQuery map that holds information about the source location of each file
-				along with a created XML parse tree and xqdoc output. This map is referred to as the
+			<?oxy_delete author="Commenter" timestamp="20190528T183456-0800" content="&lt;para&gt;Given a list of the files to process...&lt;/para&gt;"?>
+			<para><?oxy_delete author="Commenter" timestamp="20190528T183449-0800" content=" It"?><?oxy_insert_start author="Commenter" timestamp="20190528T183449-0800"?>Given
+				a list of the files to process, xqDocA<?oxy_insert_end?> creates an XQuery map that
+				holds information about the source location of each file along with a created XML
+				parse tree and xqdoc output. This map is referred to as the
 					<emphasis>model</emphasis>. </para>
-			<para>The model:</para>
+			<para>The model<?oxy_insert_start author="Commenter" timestamp="20190528T183602-0800"?>
+				can be depicted as follows<?oxy_insert_end?>:</para>
 			<para><inlinemediaobject>
 					<imageobject>
 						<imagedata fileref="images/model.png" width="100%" scalefit="1"/>
 					</imageobject>
 				</inlinemediaobject></para>
-			<para>Another map <code>$options</code> holds configuration options to apply to the run.
-				This includes a list of "renderers" to run against the
-				<emphasis>model</emphasis>.</para>
+			<para>Another map<?oxy_insert_start author="Commenter" timestamp="20190528T183638-0800"?>,<?oxy_insert_end?>
+				<code>$options</code><?oxy_insert_start author="Commenter" timestamp="20190528T183639-0800"?>,<?oxy_insert_end?>
+				holds configuration options to apply to the run. This
+				<?oxy_insert_start author="Commenter" timestamp="20190528T183654-0800"?>map
+				<?oxy_insert_end?>includes a list of "renderers" to run against the
+					<emphasis>model</emphasis>.</para>
 			<para>A renderer creates a single output file. There are currently two kinds of
 				renderers. <orderedlist>
 					<listitem>
-						<para><emphasis>global</emphasis>:  generate an output that is project wide, such as an
-							index.</para>
+						<para><emphasis>global</emphasis>: generate an output that is project wide,
+							such as an index.</para>
 					</listitem>
 					<listitem>
-						<para><emphasis>module</emphasis> generate an output for each XQuery source file, such as a
-							direct rendering of its  xqDoc file.</para>
+						<para><emphasis>module</emphasis><?oxy_insert_start author="Commenter" timestamp="20190528T193821-0800"?>:<?oxy_insert_end?>
+							generate an output for each XQuery source file, such as a direct
+							rendering of its xqDoc file.</para>
 					</listitem>
 				</orderedlist></para>
 			<section>
@@ -351,7 +440,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 						</thead>
 						<tbody>
 							<tr>
-								<td>Name</td>
+								<td><?oxy_comment_start author="Commenter" timestamp="20190528T184049-0800" comment="Is it case-sensitive? The example below uses lowercase &quot;name&quot; as the key."?>Name<?oxy_comment_end?></td>
 								<td>xs:string</td>
 								<td>Used to identify the renderer </td>
 							</tr>
@@ -373,7 +462,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 							<tr>
 								<td>output</td>
 								<td>xs:string</td>
-								<td>Serialization parameters  for the output</td>
+								<td>Serialization parameters for the output</td>
 							</tr>
 							<tr>
 								<td>function</td>
@@ -383,7 +472,7 @@ function print-module($uri as xs:string, $local as xs:boolean) as element()*
 						</tbody>
 					</table></para>
 				<para>The listing below shows some example
-					renderers<programlisting>map {
+					renderers<?oxy_insert_start author="Commenter" timestamp="20190528T183938-0800"?>:<?oxy_insert_end?><programlisting>map {
   "output": "html5",
   "name": "index",
   "uri": "index.html",
@@ -409,28 +498,42 @@ map {
   "type": Q{https://github.com/Quodatum/xqdoca}module,
   "description": "xqparse file for the source module"
 }</programlisting></para>
-				<para>All outputs are created below the target folder specified in the $options. For
-					module style outputs numbered sub-folders are created for each source module and
-					the uri  is resolved relative to this folder.</para>
+				<para>All outputs are created below the target folder specified in the
+						<?oxy_insert_start author="Commenter" timestamp="20190528T184212-0800" type="surround"?><code><?oxy_insert_end?>$options</code><?oxy_insert_start author="Commenter" timestamp="20190528T184158-0800"?>
+					map<?oxy_insert_end?>. For module style
+					outputs<?oxy_insert_start author="Commenter" timestamp="20190528T184231-0800"?>,<?oxy_insert_end?>
+					numbered sub-folders are created for each source module and the
+						<?oxy_insert_start author="Commenter" timestamp="20190528T184313-0800" type="surround"?><code><?oxy_insert_end?>uri</code>
+					<?oxy_insert_start author="Commenter" timestamp="20190528T184321-0800"?>value
+					<?oxy_insert_end?>is resolved relative to this folder.</para>
 				<para>Functions annotated as <emphasis role="bold">global</emphasis> renderers need
-					to have arity=2, and signature <code>($model</code><code> as
-						</code><code>map(*)</code>, <code>$opts</code><code> as
-						</code><code>map(*))</code></para>
+					to have
+					arity=2<?oxy_delete author="Commenter" timestamp="20190528T184349-0800" content=","?>
+					and signature <code>($model</code><code> as </code><code>map(*)</code>,
+						<code>$opts</code><code> as
+					</code><code>map(*))</code><?oxy_insert_start author="Commenter" timestamp="20190528T184342-0800"?>.<?oxy_insert_end?></para>
 				<para>Functions annotated as <emphasis role="bold">module</emphasis> renderers need
-					to have arity=3 , and signature  ( <code>$file</code><code> as
-						</code><code>map(*)</code>, <code>$opts</code><code> as
+					to have
+					arity=3<?oxy_delete author="Commenter" timestamp="20190528T184442-0800" content=" ,"?>
+					and signature <?oxy_delete author="Commenter" timestamp="20190528T184515-0800" content="("?>
+					<code><?oxy_insert_start author="Commenter" timestamp="20190528T184512-0800"?>(<?oxy_insert_end?>$file</code><code>
+						as </code><code>map(*)</code>, <code>$opts</code><code> as
 						</code><code>map(*)</code>, <code>$model</code><code> as
-						</code><code>map(*)</code> )</para>
+						</code><code>map(*)<?oxy_insert_start author="Commenter" timestamp="20190528T184505-0800"?>)<?oxy_insert_end?></code><?oxy_delete author="Commenter" timestamp="20190528T184508-0800" content=" )"?><?oxy_insert_start author="Commenter" timestamp="20190528T184451-0800"?>.<?oxy_insert_end?></para>
 			</section>
 		</section>
 		<section>
 			<title>Implementation</title>
-			<para>The code runs under BaseX 9.2, currently no XSLT is used by the built-in renderers. </para>
-			<para>For parsing XQuery and xqDoc comments the <productname>ex-xparse</productname> component
-					<citation>18</citation> is used. This component is a REX based parser.
-					<productname>ex-parse</productname> is modelled on John Lumley's proposal for an
-				XParse Module <citation>XPARSE</citation>. It can parse a number of XQuery versions
-				and dialects.</para>
+			<para>The code runs under BaseX 9.2,
+				<?oxy_insert_start author="Commenter" timestamp="20190528T184533-0800"?>and
+				<?oxy_insert_end?>currently no XSLT is used by the built-in renderers. </para>
+			<para>For parsing XQuery and xqDoc
+        comments<?oxy_insert_start author="Commenter" timestamp="20190528T184543-0800"?>,<?oxy_insert_end?>
+        the <productname>ex-xparse</productname> component <citation>18</citation> is used. This
+        component is a REX based parser.
+          <productname><?oxy_comment_start author="Commenter" timestamp="20190529T082526-0400" comment="Should this say ex-xparse with an additional &quot;x&quot;?"?>ex-parse<?oxy_comment_end?></productname>
+        is modelled on John Lumley's proposal for an XParse Module <citation>XPARSE</citation>. It
+        can parse a number of XQuery versions and dialects.</para>
 			<para>The rendering code
 				is:<programlisting>      for $render in $global
       let $doc:= apply($render?function,[$model,$opts])
@@ -474,19 +577,31 @@ map {
 		</section>
 		<section>
 			<title>Customisation</title>
-			<para>With any report generator it is likely that customization will be required. To
-				facilitate this new <productname>xqdoca</productname> outputs can be added to the
-				system without modifications to the driver code. A plug-in system is provided using
-				the dynamic loading of code modules.</para>
-			<para>This is done using custom annotations within the <productname>xqdoca</productname> code
-				base. Functions that generate <productname>xqdoca</productname> output must have
-				annotations in the <productname>xqdoca</productname> namespace indicating their
-				role. At runtime a designated directory is scanned for XQuery modules and functions
-				containing the appropriate annotations can be invoked by id without requiring any
-				other code changes. </para>
-			<para>Three annotations are defined in the xqDoca namespace:
-					<code>"https://github.com/Quodatum/xqdoca";</code>
-			</para>
+			<para>With any report
+				generator<?oxy_insert_start author="Commenter" timestamp="20190528T184628-0800"?>,<?oxy_insert_end?>
+				it is likely that
+				<?oxy_comment_start author="Commenter" timestamp="20190528T184832-0800" comment="I didn&apos;t know whether you preferred British or American spellings. I think I&apos;ve seen more British than American spellings in this paper, so I changed the &quot;z&quot; to an &quot;s&quot;."?>customi<?oxy_delete author="Commenter" timestamp="20190528T184739-0800" content="z"?><?oxy_insert_start author="Commenter" timestamp="20190528T184739-0800"?>s<?oxy_insert_end?>ation<?oxy_comment_end?>
+				will be required. To facilitate
+				this<?oxy_insert_start author="Commenter" timestamp="20190528T184648-0800"?>,<?oxy_insert_end?>
+				new
+					<productname>xq<?oxy_delete author="Commenter" timestamp="20190528T184706-0800" content="d"?><?oxy_insert_start author="Commenter" timestamp="20190528T184706-0800"?>D<?oxy_insert_end?>oc<?oxy_delete author="Commenter" timestamp="20190528T184708-0800" content="a"?><?oxy_insert_start author="Commenter" timestamp="20190528T184708-0800"?>A<?oxy_insert_end?></productname>
+				outputs can be added to the system without modifications to the driver code. A
+				plug-in system is provided using the dynamic loading of code modules.</para>
+			<para>This is done using custom annotations within the
+					<productname>xq<?oxy_insert_start author="Commenter" timestamp="20190528T184911-0800"?>D<?oxy_insert_end?><?oxy_delete author="Commenter" timestamp="20190528T184910-0800" content="d"?>oc<?oxy_delete author="Commenter" timestamp="20190528T184913-0800" content="a"?><?oxy_insert_start author="Commenter" timestamp="20190528T184913-0800"?>A<?oxy_insert_end?></productname>
+				code base. Functions that generate
+					<productname>xq<?oxy_delete author="Commenter" timestamp="20190528T184929-0800" content="d"?><?oxy_insert_start author="Commenter" timestamp="20190528T184929-0800"?>D<?oxy_insert_end?>oc<?oxy_delete author="Commenter" timestamp="20190528T184931-0800" content="a"?><?oxy_insert_start author="Commenter" timestamp="20190528T184931-0800"?>A<?oxy_insert_end?></productname>
+				output must have annotations in the
+					<productname>xq<?oxy_delete author="Commenter" timestamp="20190528T185700-0800" content="d"?><?oxy_insert_start author="Commenter" timestamp="20190528T185700-0800"?>D<?oxy_insert_end?>oc<?oxy_delete author="Commenter" timestamp="20190528T185702-0800" content="a"?><?oxy_insert_start author="Commenter" timestamp="20190528T185702-0800"?>A<?oxy_insert_end?></productname>
+				namespace indicating their role. At
+				runtime<?oxy_insert_start author="Commenter" timestamp="20190528T185710-0800"?>,<?oxy_insert_end?>
+				a designated directory is scanned for XQuery
+				modules<?oxy_insert_start author="Commenter" timestamp="20190528T185801-0800"?>,<?oxy_insert_end?>
+				and functions containing the appropriate annotations can be invoked by id without
+				requiring any other code changes. </para>
+			<para>Three annotations are defined in the
+				xqDoc<?oxy_delete author="Commenter" timestamp="20190528T185815-0800" content="a"?><?oxy_insert_start author="Commenter" timestamp="20190528T185815-0800"?>A<?oxy_insert_end?> namespace<?oxy_delete author="Commenter" timestamp="20190528T194345-0800" content=":"?><?oxy_insert_start author="Commenter" timestamp="20190528T194345-0800"?>,<?oxy_insert_end?>
+				<code>"https://github.com/Quodatum/xqdoca"<?oxy_delete author="Commenter" timestamp="20190528T194348-0800" content=";"?></code><?oxy_insert_start author="Commenter" timestamp="20190528T194352-0800"?>.<?oxy_insert_end?><?oxy_delete author="Commenter" timestamp="20190528T194354-0800" content=" "?></para>
 			<para>
 				<table>
 					<caption>xqDocA annotations</caption>
@@ -509,20 +624,26 @@ map {
 						<tr>
 							<td><code>xqdoca:module</code></td>
 							<td>Indicates a module renderer</td>
-							<td>(name for reference , description)</td>
+							<td>(name for
+								reference<?oxy_delete author="Commenter" timestamp="20190528T190105-0800" content=" "?>,
+								description)</td>
 						</tr>
 						<tr>
 							<td><code>xqdoca:output</code></td>
 							<td>Serialization details</td>
-							<td>(output-uri, serialization-type)</td>
+							<td>(<?oxy_comment_start author="Commenter" timestamp="20190528T190258-0800" comment="I wasn&apos;t sure why these two parameters have hyphens, whereas &quot;name for reference&quot;  is an ordinary phrase. I&apos;m leaving it as is to avoid inadvertently introducing a problem."?>output-uri,
+								serialization-type<?oxy_comment_end?>)</td>
 						</tr>
 					</tbody>
 				</table>
 			</para>
 			<para>
 				<note>
-					<para>A function will have one of <code>xqdoca:global</code> or <code>xqdoca:module</code> and
-						a <code>xqdoca:output</code>.</para>
+					<para>A function will have one of <code>xqdoca:global</code> or <code>xqdoca:module</code><?oxy_insert_start author="Commenter" timestamp="20190528T190319-0800"?>,<?oxy_insert_end?>
+						<?oxy_delete author="Commenter" timestamp="20190528T190321-0800" content="and "?><?oxy_insert_start author="Commenter" timestamp="20190528T190321-0800"?>as
+						well as <?oxy_insert_end?>a<?oxy_insert_start author="Commenter" timestamp="20190528T190326-0800"?>n<?oxy_insert_end?>
+						<code>xqdoca:output</code><?oxy_insert_start author="Commenter" timestamp="20190528T190341-0800"?>
+						annotation<?oxy_insert_end?>.</para>
 				</note>
 			</para>
 			<para>Sample usage:</para>
@@ -545,21 +666,32 @@ as document-node() </programlisting>
 function _:swagger($model as map(*),
                    $opts as map(*)
                   )                           
-{</programlisting>
+<?oxy_delete author="Commenter" timestamp="20190528T194503-0800" content="{"?></programlisting>
 			</para>
-			<para>This requires two features to be provided by the XQuery environment:<orderedlist>
+			<para><?oxy_comment_start author="Commenter" timestamp="20190528T190754-0800" comment="Can you clarify what &quot;This&quot; refers to? xqDocA in general, or something more specific?"?>This<?oxy_comment_end?>
+				requires two features to be provided by the XQuery environment:<orderedlist>
 					<listitem>
-						<para>Dynamic module loading. This is standardised in the XQuery 3.1 specification as
-								<code>fn:load-xquery-module</code>. Currently this is not widely
-							supported however many implementation have custom variants that provide
-							equivalent functionality.</para>
+						<para>Dynamic module loading. This is standardised in the XQuery 3.1
+							specification as <code>fn:load-xquery-module</code>.
+							Currently<?oxy_insert_start author="Commenter" timestamp="20190528T190827-0800"?>,<?oxy_insert_end?>
+							this
+							<?oxy_insert_start author="Commenter" timestamp="20190528T190835-0800"?>feature
+							<?oxy_insert_end?>is not widely
+							supported<?oxy_insert_start author="Commenter" timestamp="20190528T190819-0800"?>;<?oxy_insert_end?>
+							however<?oxy_insert_start author="Commenter" timestamp="20190528T190821-0800"?>,<?oxy_insert_end?>
+							many implementation have custom variants that provide equivalent
+							functionality.</para>
 					</listitem>
 					<listitem>
 						<para>Annotation introspection. That is the ability at runtime to determine what annotations
 							are attached to a function. This is not a feature with any
-							standardization but again is widely supported via vendor libraries. See
-							Saxon <citation>10</citation>, MarkLogic <citation>11</citation>, BaseX
-								<citation>12</citation> , eXist-db <citation>13</citation>.</para>
+							standardi<?oxy_delete author="Commenter" timestamp="20190528T190952-0800" content="z"?><?oxy_insert_start author="Commenter" timestamp="20190528T190952-0800"?>s<?oxy_insert_end?>ation
+							but again is widely supported via vendor libraries. See Saxon
+								<citation>10</citation>, MarkLogic <citation>11</citation>, BaseX
+								<citation>12</citation><?oxy_delete author="Commenter" timestamp="20190528T191015-0800" content=" "?>,
+							<?oxy_insert_start author="Commenter" timestamp="20190528T191021-0800"?>and
+							<?oxy_insert_end?>eXist-db
+								<citation><?oxy_delete author="Commenter" timestamp="20190528T200557-0800" content="13"?><?oxy_insert_start author="Commenter" timestamp="20190528T200651-0800"?>14<?oxy_insert_end?></citation>.</para>
 					</listitem>
 				</orderedlist></para>
 		</section>
@@ -567,12 +699,18 @@ function _:swagger($model as map(*),
 	
 	<section>
 		<title>Conclusions</title>
-		<para>The combination of Maps with the "? lookup operator and XML with XPath provides a powerful
-			programming environment. The use of annotation driven plug-in modules provides a clean
-			separation of concerns between the driving  code and task at hand.</para>
+		<para>The combination of
+			<?oxy_delete author="Commenter" timestamp="20190528T191137-0800" content="M"?><?oxy_insert_start author="Commenter" timestamp="20190528T191137-0800"?>m<?oxy_insert_end?>aps
+			with the
+			"?<?oxy_insert_start author="Commenter" timestamp="20190528T191242-0800"?>"<?oxy_insert_end?>
+			lookup operator and XML with XPath provides a powerful programming environment. The use
+			of annotation driven plug-in modules provides a clean separation of concerns between the
+			driving code and task at hand.</para>
 		<para>I hope that this paper may be of value for those working with XQuery code and perhaps
 			inspire some new uses for annotations. </para>
-		<para>For code and issues see <link xmlns:xlink="http://www.w3.org/1999/xlink"
+		<para>For code and
+			issues<?oxy_insert_start author="Commenter" timestamp="20190528T191320-0800"?>,<?oxy_insert_end?>
+			see <link xmlns:xlink="http://www.w3.org/1999/xlink"
 				xlink:href="https://github.com/Quodatum/xqdoca"
 				>https://github.com/Quodatum/xqdoca</link>. </para>
 
@@ -580,24 +718,26 @@ function _:swagger($model as map(*),
 
 	<bibliography xml:id="references">
 		<bibliomixed><abbrev>XQUERY31SPEC</abbrev>
-			<author>
-				<personname><surname>Speigel</surname>
-					<firstname>Josh</firstname></personname>
-			</author>: <title>XQuery 3.1: An XML Query Language</title>. <date>21 3 2017</date>,
-				<orgname>W3C</orgname>
-			<bibliomisc><link xl:href="https://www.w3.org/TR/2017/REC-xquery-31-20170321/"
-				/></bibliomisc></bibliomixed>
+      <author>
+        <personname><surname>Speigel</surname>
+          <firstname>Josh</firstname></personname>
+      </author>: <title>XQuery 3.1: An XML Query Language</title>. <date>21
+        <?oxy_delete author="Commenter" timestamp="20190529T081909-0400" content="3"?><?oxy_insert_start author="Commenter" timestamp="20190529T081909-0400"?>March<?oxy_insert_end?>
+        2017</date>, <orgname>W3C</orgname>
+      <bibliomisc><link xl:href="https://www.w3.org/TR/2017/REC-xquery-31-20170321/"
+      /></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>RESTXQ</abbrev>
-			<author>
-				<personname><surname>Retter</surname>
-					<firstname>Adam</firstname></personname>
-			</author><title>RESTXQ 1.0: RESTful Annotations for XQuery</title>. <date>21 March
-				2016</date>, <orgname><link xmlns:xlink="http://www.w3.org/1999/xlink"
-					xlink:href="http://exquery.org/">http://exquery.org/</link></orgname>
-			<bibliomisc><link
-					xl:href="http://exquery.github.io/exquery/exquery-restxq-specification/restxq-1.0-specification.html"
-				/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev> JAX-RS</abbrev>
+      <author>
+        <personname><surname>Retter</surname>
+          <firstname>Adam</firstname></personname>
+      </author><?oxy_insert_start author="Commenter" timestamp="20190528T191536-0800"?>:
+        <?oxy_insert_end?><title>RESTXQ 1.0: RESTful Annotations for XQuery</title>. <date>21 March
+        2016</date>, <orgname><link xmlns:xlink="http://www.w3.org/1999/xlink"
+          xlink:href="http://exquery.org/">http://exquery.org/</link></orgname>
+      <bibliomisc><link
+          xl:href="http://exquery.github.io/exquery/exquery-restxq-specification/restxq-1.0-specification.html"
+        /></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev><?oxy_delete author="Commenter" timestamp="20190528T195533-0800" content=" "?>JAX-RS</abbrev>
 			<author>
 				<personname><surname>Bucek</surname>
 					<firstname>Pavel</firstname></personname>
@@ -631,53 +771,57 @@ function _:swagger($model as map(*),
 		
 		<bibliomixed><abbrev>1</abbrev>
 			<author>
-				<personname> </personname>
-			</author>
-			<title>Web sockets</title>
-			<orgname>BaseX.org</orgname>
+				<personname><?oxy_delete author="Commenter" timestamp="20190528T195827-0800" content=" "?></personname>
+			</author><?oxy_delete author="Commenter" timestamp="20190528T200009-0800" content=" "?><title>Web
+				sockets</title><?oxy_insert_start author="Commenter" timestamp="20190528T191801-0800"?>.<?oxy_insert_end?>
+			<orgname>BaseX<?oxy_delete author="Commenter" timestamp="20190528T192535-0800" content=".org"?></orgname>
 			<bibliomisc><link xl:href="http://docs.basex.org/wiki/WebSockets#Annotations"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>2</abbrev>
 			<author>
-				<personname> </personname>
-			</author>
-			<title>Web permissions</title>
-			<orgname>BaseX.org</orgname>
+				<personname><?oxy_delete author="Commenter" timestamp="20190528T195829-0800" content=" "?></personname>
+			</author><?oxy_delete author="Commenter" timestamp="20190528T200000-0800" content=" "?><title>Web
+				permissions</title><?oxy_insert_start author="Commenter" timestamp="20190528T191808-0800"?>.<?oxy_insert_end?>
+			<orgname>BaseX<?oxy_delete author="Commenter" timestamp="20190528T192531-0800" content=".org"?></orgname>
 			<bibliomisc><link xl:href="http://docs.basex.org/wiki/Permissions#Annotations"
 				/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev xml:id="exist-templates">4</abbrev>
-			<author>
-				<personname> </personname>
-			</author>
-			<title>Templating</title>
-			<orgname>Exist db</orgname>
-			<bibliomisc><link
-					xl:href="https://exist-db.org/exist/apps/demo/examples/templating/templates.html"
-				/></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev xml:id="exist-templates"
+        ><?oxy_comment_start author="Commenter" timestamp="20190529T083239-0400" comment="The bibliographic entries go from [2] to [4]. Is there an item 3 that&apos;s missing?"?>4<?oxy_comment_end?></abbrev>
+      <author>
+        <personname><?oxy_delete author="Commenter" timestamp="20190528T195841-0800" content=" "?></personname>
+      </author><?oxy_delete author="Commenter" timestamp="20190528T200005-0800" content=" "?><title>Templating</title><?oxy_insert_start author="Commenter" timestamp="20190528T191817-0800"?>.<?oxy_insert_end?>
+      <orgname><?oxy_delete author="Commenter" timestamp="20190528T192459-0800" content="Exist db"?><?oxy_insert_start author="Commenter" timestamp="20190528T192459-0800"?>eXist-db<?oxy_insert_end?></orgname>
+      <bibliomisc><link
+          xl:href="https://exist-db.org/exist/apps/demo/examples/templating/templates.html"
+        /></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>5</abbrev>
 			<author>
-				<personname> </personname>
-			</author>
-			<title>Transaction annotations</title>. , <orgname>Mark Logic</orgname>
+				<personname><?oxy_delete author="Commenter" timestamp="20190528T195845-0800" content=" "?></personname>
+			</author><?oxy_delete author="Commenter" timestamp="20190528T200153-0800" content=" "?><title>Transaction
+				annotations</title>. <?oxy_delete author="Commenter" timestamp="20190528T191845-0800" content=","?>
+			<orgname>Mark Logic</orgname>
 			<bibliomisc><link xl:href="https://docs.marklogic.com/guide/xquery/enhanced#id_94002"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>6</abbrev>
 			<author>
 				<personname><surname>Whitby</surname>
 					<firstname>Rob</firstname></personname>
-			</author>: <title>An XQuery test framework for MarkLogic </title>. ,  <bibliomisc><link
+			</author>: <title>An XQuery test framework for MarkLogic </title>.
+					<?oxy_delete author="Commenter" timestamp="20190528T191909-0800" content=", "?><bibliomisc><link
 					xl:href="https://github.com/robwhitby/xray"/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>7</abbrev>
 			<author>
 				<personname><surname>Parr</surname>
 					<firstname>Terence</firstname></personname>
-			</author>: <title>ANTLR</title>. ,  <bibliomisc><link xl:href="https://www.antlr.org/"
-				/></bibliomisc></bibliomixed>
+			</author>: <title>ANTLR</title>.
+					<?oxy_delete author="Commenter" timestamp="20190528T191922-0800" content=", "?><bibliomisc><link
+					xl:href="https://www.antlr.org/"/></bibliomisc></bibliomixed>
       <bibliomixed><abbrev>8</abbrev>
 			<author>
 				<personname><surname>Rademacher</surname>
 					<firstname>Gunther</firstname></personname>
-			</author>: <title>REx Parser Generator</title>. , <bibliomisc><link
+			</author>: <title>REx Parser Generator</title>.
+					<?oxy_delete author="Commenter" timestamp="20190528T191933-0800" content=", "?><bibliomisc><link
 					xmlns:xlink="http://www.w3.org/1999/xlink"
 					xlink:href="https://www.bottlecaps.de/rex/"
 					>https://www.bottlecaps.de/rex/</link></bibliomisc></bibliomixed>
@@ -685,62 +829,75 @@ function _:swagger($model as map(*),
 			<author>
 				<personname><surname>Candillon</surname>
 					<firstname>William </firstname></personname>
-			</author>: <title>JSONiq &amp; XQuery Quality Checker </title>. ,  <bibliomisc><link
+			</author>: <title>JSONiq &amp; XQuery Quality Checker </title>.
+					<?oxy_delete author="Commenter" timestamp="20190528T192003-0800" content=", "?><bibliomisc><link
 					xl:href="JSONiq &amp; XQuery Quality Checker "/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>10</abbrev>
 			<author>
-				<personname> </personname>
-			</author><title>Saxon function-annotations</title>. , <bibliomisc><link
+				<personname><?oxy_delete author="Commenter" timestamp="20190528T195852-0800" content=" "?></personname>
+			</author><title>Saxon function-annotations</title>.
+					<?oxy_delete author="Commenter" timestamp="20190528T192016-0800" content=", "?><bibliomisc><link
 					xl:href="https://www.saxonica.com/html/documentation/functions/saxon/function-annotations.html"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>11</abbrev>
-			<author>
-				<personname> </personname>
-			</author><title>Mark logic annotations</title>. , <bibliomisc><link
-					xl:href="https://docs.marklogic.com/sc:annotations"/></bibliomisc></bibliomixed>
+      <author>
+        <personname><?oxy_delete author="Commenter" timestamp="20190528T195856-0800" content=" "?></personname>
+      </author><title>Mark
+        <?oxy_delete author="Commenter" timestamp="20190529T083000-0400" content="l"?><?oxy_insert_start author="Commenter" timestamp="20190529T083000-0400"?>L<?oxy_insert_end?>ogic
+        annotations</title>.
+          <?oxy_delete author="Commenter" timestamp="20190528T192034-0800" content=", "?><bibliomisc><link
+          xl:href="https://docs.marklogic.com/sc:annotations"/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>12</abbrev>
 			<author>
-				<personname> </personname>
-			</author><title>BaseX inspect:function-annotations</title>. , <bibliomisc><link
+				<personname><?oxy_delete author="Commenter" timestamp="20190528T195900-0800" content=" "?></personname>
+			</author><title>BaseX inspect:function-annotations</title>.
+					<?oxy_delete author="Commenter" timestamp="20190528T192050-0800" content=", "?><bibliomisc><link
 					xl:href="http://docs.basex.org/wiki/Inspection_Module#inspect:function-annotations"
 				/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>14</abbrev>
+		<bibliomixed><abbrev><?oxy_delete author="Commenter" timestamp="20190528T200645-0800" content="14"?><?oxy_insert_start author="Commenter" timestamp="20190528T200645-0800"?>13<?oxy_insert_end?></abbrev>
 			<author>
-				<personname> </personname>
-			</author><title>xquerydoc</title>. , <bibliomisc><link
+				<personname><?oxy_delete author="Commenter" timestamp="20190528T195903-0800" content=" "?></personname>
+			</author><title>xquerydoc</title>.
+					<?oxy_delete author="Commenter" timestamp="20190528T192056-0800" content=", "?><bibliomisc><link
 					xl:href="https://github.com/xquery/xquerydoc"/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>13</abbrev>
+		<bibliomixed><abbrev><?oxy_delete author="Commenter" timestamp="20190528T200606-0800" content="13"?><?oxy_insert_start author="Commenter" timestamp="20190528T200651-0800"?>14<?oxy_insert_end?></abbrev>
 			<author>
-				<personname> </personname>
-			</author><title>xquery inspection</title>. , <orgname>eXist-db</orgname>
+				<personname><?oxy_delete author="Commenter" timestamp="20190528T195906-0800" content=" "?></personname>
+			</author><title>xquery inspection</title>.
+				<?oxy_delete author="Commenter" timestamp="20190528T192104-0800" content=", "?><orgname>eXist-db</orgname>
 			<bibliomisc><link
 					xl:href="https://exist-db.org/exist/apps/fundocs/view.html?uri=http://exist-db.org/xquery/inspection"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>15</abbrev>
 			<author>
-				<personname> </personname>
-			</author><title>docs:generate-xqdoc</title>. , <orgname>eXist-db</orgname>
+				<personname><?oxy_delete author="Commenter" timestamp="20190528T195909-0800" content=" "?></personname>
+			</author><title>docs:generate-xqdoc</title>.
+				<?oxy_delete author="Commenter" timestamp="20190528T192114-0800" content=", "?><orgname>eXist-db</orgname>
 			<bibliomisc><link
 					xl:href="http://exist-db.org/exist/apps/fundocs/view.html?uri=http://exist-db.org/xquery/docs&amp;location=/db/apps/fundocs/modules/scan.xql&amp;details=true"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>16</abbrev>
 			<author>
-				<personname> </personname>
-			</author><title>inspect:xqdoc</title>. , <orgname>BaseX</orgname>
+				<personname><?oxy_delete author="Commenter" timestamp="20190528T195914-0800" content=" "?></personname>
+			</author><title>inspect:xqdoc</title>.
+				<?oxy_delete author="Commenter" timestamp="20190528T192124-0800" content=", "?><orgname>BaseX</orgname>
 			<bibliomisc><link xl:href="http://docs.basex.org/wiki/Inspection_Module#inspect:xqdoc"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>17</abbrev>
 			<author>
 				<personname><surname>Cahlander</surname>
 					<firstname>Loren</firstname></personname>
-			</author>: <title> lcahlander/xqdoc </title>. ,  <bibliomisc><link
+			</author>: <title> lcahlander/xqdoc </title>.
+					<?oxy_delete author="Commenter" timestamp="20190528T192140-0800" content=", "?><bibliomisc><link
 					xl:href="https://github.com/lcahlander/xqdoc"/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>18</abbrev>
-			<author>
-				<personname><surname>Bunce</surname>
-					<firstname>Andy</firstname></personname>
-			</author>: <title>ex-parse</title>. ,  <bibliomisc><link
-					xl:href="https://github.com/expkg-zone58/ex-xparse"/></bibliomisc></bibliomixed>
+      <author>
+        <personname><surname>Bunce</surname>
+          <firstname>Andy</firstname></personname>
+      </author>:
+        <title><?oxy_comment_start author="Commenter" timestamp="20190529T082409-0400" comment="Should this say ex-xparse with an additional &quot;x&quot;?"?>ex-parse<?oxy_comment_end?></title>.
+          <?oxy_delete author="Commenter" timestamp="20190528T192149-0800" content=", "?><bibliomisc><link
+          xl:href="https://github.com/expkg-zone58/ex-xparse"/></bibliomisc></bibliomixed>
 	</bibliography>
 
 </article>
