@@ -86,8 +86,9 @@
 				<title>RestXQ</title>
 				<para>In 2012, Adam Retter presented a use of annotations to define a web interface
 						<citation>RESTXQ</citation>. It is based on the Java standard RESTful Web
-					Services JAX-RS. RESTXQ has since been implemented by many XQuery products as it
-					provides a straightforward way to wire-up XQuery code to a web interface. </para>
+					Services <citation>JAX-RS</citation>. RESTXQ has since been implemented by many
+					XQuery products as it provides a straightforward way to wire-up XQuery code to a
+					web interface. </para>
 				<para>A simple RESTXQ
 					example:<programlisting>declare 
 %rest:path("hello/{$who}") 
