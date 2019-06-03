@@ -705,7 +705,7 @@ function _:swagger($model as map(*),
 		<bibliomixed><abbrev>13</abbrev><author>
 				<personname><surname>Fuller</surname>
 					<firstname>James</firstname></personname>
-			</author><author>
+			</author>, <author>
 				<personname><surname>Snelson</surname>
 					<firstname>John</firstname></personname>
 			</author>: <title>xquerydoc</title>. <bibliomisc><link
