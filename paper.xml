@@ -730,12 +730,18 @@ function _:swagger($model as map(*),
 			</authorgroup><title>xquerydoc</title>. <bibliomisc><link
 					xl:href="https://github.com/xquery/xquerydoc"/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>14</abbrev>
-			<title>xquery inspection</title>. <orgname>eXist-db</orgname>
+			<author>
+				<personname><surname>Meier</surname>
+					<firstname>Wolfgang</firstname></personname>
+			</author>: <title>xquery inspection</title>. <orgname>eXist-db</orgname>
 			<bibliomisc><link
 					xl:href="https://exist-db.org/exist/apps/fundocs/view.html?uri=http://exist-db.org/xquery/inspection"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev>15</abbrev>
-			<title>docs:generate-xqdoc</title>. <orgname>eXist-db</orgname>
+			<author>
+				<personname><surname>Meier</surname>
+					<firstname>Wolfgang</firstname></personname>
+			</author>: <title>docs:generate-xqdoc</title>. <orgname>eXist-db</orgname>
 			<bibliomisc><link
 					xl:href="http://exist-db.org/exist/apps/fundocs/view.html?uri=http://exist-db.org/xquery/docs&amp;location=/db/apps/fundocs/modules/scan.xql&amp;details=true"
 				/></bibliomisc></bibliomixed>
