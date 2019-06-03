@@ -608,8 +608,7 @@ function _:swagger($model as map(*),
 			<bibliomisc><link
 					xl:href="http://exquery.github.io/exquery/exquery-restxq-specification/restxq-1.0-specification.html"
 				/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>JAX-RS</abbrev>
-			<author>
+		<bibliomixed><abbrev>JAX-RS</abbrev><author>
 				<personname><surname>Bucek</surname>
 					<firstname>Pavel</firstname></personname>
 			</author>: <title>JSR 370: JavaTM API for RESTful Web Services (JAX-RS 2.1)
@@ -618,19 +617,16 @@ function _:swagger($model as map(*),
 			<bibliomisc><link xmlns:xlink="http://www.w3.org/1999/xlink"
 					xlink:href="https://jcp.org/en/jsr/detail?id=370"
 					>https://jcp.org/en/jsr/detail?id=370</link></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>XQDOC</abbrev>
-			<author>
+		<bibliomixed><abbrev>XQDOC</abbrev><author>
 				<personname><surname>McBeath</surname>
 					<firstname>Darrin</firstname></personname>
 			</author>: <title>xqDoc website</title>. <date>13 Jan 2014</date>, <orgname><link
 					xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://xqdoc.org"
 					>http://xqdoc.org</link></orgname>
-			<bibliomisc><link
-						xmlns:xlink="http://www.w3.org/1999/xlink"
-						xlink:href="http://xqdoc.org/index.html"
-					>http://xqdoc.org/index.html</link></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>XPARSE</abbrev>
-			<author>
+			<bibliomisc><link xmlns:xlink="http://www.w3.org/1999/xlink"
+					xlink:href="http://xqdoc.org/index.html"
+				>http://xqdoc.org/index.html</link></bibliomisc></bibliomixed>
+		<bibliomixed><abbrev>XPARSE</abbrev><author>
 				<personname><surname>Lumley</surname>
 					<firstname>John</firstname></personname>
 			</author>: <title>XParse Module</title>. <date>8 Dec 2014</date>, <orgname><link
@@ -640,126 +636,106 @@ function _:swagger($model as map(*),
 					xlink:href="https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html"
 					>https://lists.w3.org/Archives/Public/public-expath/2015Feb/att-0003/xparse.html</link></bibliomisc></bibliomixed>
 		
-		<bibliomixed><abbrev>1</abbrev>
-			<author>
+		<bibliomixed><abbrev>1</abbrev><author>
 				<personname><surname>Grün</surname>
 					<firstname>Christian</firstname></personname>
 			</author>: <title>Web sockets</title>. <orgname>BaseX</orgname>
 			<bibliomisc><link xl:href="http://docs.basex.org/wiki/WebSockets#Annotations"
 				/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>2</abbrev>
-			<author>
+		<bibliomixed><abbrev>2</abbrev><author>
 				<personname><surname>Grün</surname>
 					<firstname>Christian</firstname></personname>
 			</author>: <title>Web permissions</title>. <orgname>BaseX</orgname>
 			<bibliomisc><link xl:href="http://docs.basex.org/wiki/Permissions#Annotations"
 				/></bibliomisc></bibliomixed>
-      <bibliomixed><abbrev>3</abbrev>
-			<author>
+      <bibliomixed><abbrev>3</abbrev><author>
 				<personname><surname>Grün</surname>
 					<firstname>Christian</firstname></personname>
-			</author>:<title>XQuery Extensions: Annotations</title>. <orgname>BaseX</orgname>
+			</author>: <title>XQuery Extensions: Annotations</title>. <orgname>BaseX</orgname>
 			<bibliomisc><link xl:href="http://docs.basex.org/wiki/XQuery_Extensions#Annotations"
 				/></bibliomisc></bibliomixed>
 		<bibliomixed><abbrev xml:id="exist-templates"
-				><?oxy_comment_start author="Commenter" timestamp="20190529T083239-0400" comment="The bibliographic entries go from [2] to [4]. Is there an item 3 that&apos;s missing?" id="qd1_k5q_yhb" flag="done" mid="13"?><?oxy_comment_start author="Andy Bunce" timestamp="20190603T094531+0000" comment="yes  [3] added" parentID="qd1_k5q_yhb" flag="done"?>4<?oxy_comment_end?><?oxy_comment_end mid="13"?></abbrev>
-			<author>
+				><?oxy_comment_start author="Commenter" timestamp="20190529T083239-0400" comment="The bibliographic entries go from [2] to [4]. Is there an item 3 that&apos;s missing?" id="qd1_k5q_yhb" flag="done" mid="13"?><?oxy_comment_start author="Andy Bunce" timestamp="20190603T094531+0000" comment="yes  [3] added" parentID="qd1_k5q_yhb" flag="done"?>4<?oxy_comment_end?><?oxy_comment_end mid="13"?></abbrev><author>
 				<personname><surname>Meier</surname>
 					<firstname>Wolfgang</firstname></personname>
 			</author>: <title>Templating</title>. <orgname>eXist-db</orgname>
 			<bibliomisc><link
 					xl:href="https://exist-db.org/exist/apps/demo/examples/templating/templates.html"
 				/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>5</abbrev>
-			<title>Transaction annotations</title>.  <orgname>MarkLogic</orgname>
+		<bibliomixed><abbrev>5</abbrev><title>Transaction annotations</title>.
+				<orgname>MarkLogic</orgname>
 			<bibliomisc><link xl:href="https://docs.marklogic.com/guide/xquery/enhanced#id_94002"
 				/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>6</abbrev>
-			<author>
+		<bibliomixed><abbrev>6</abbrev><author>
 				<personname><surname>Whitby</surname>
 					<firstname>Rob</firstname></personname>
 			</author>: <title>An XQuery test framework for MarkLogic </title>. <bibliomisc><link
 					xl:href="https://github.com/robwhitby/xray"/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>7</abbrev>
-			<author>
+		<bibliomixed><abbrev>7</abbrev><author>
 				<personname><surname>Parr</surname>
 					<firstname>Terence</firstname></personname>
 			</author>: <title>ANTLR</title>. <bibliomisc><link xl:href="https://www.antlr.org/"
 				/></bibliomisc></bibliomixed>
-      <bibliomixed><abbrev>8</abbrev>
-			<author>
+      <bibliomixed><abbrev>8</abbrev><author>
 				<personname><surname>Rademacher</surname>
 					<firstname>Gunther</firstname></personname>
 			</author>: <title>REx Parser Generator</title>. <bibliomisc><link
 					xmlns:xlink="http://www.w3.org/1999/xlink"
 					xlink:href="https://www.bottlecaps.de/rex/"
 					>https://www.bottlecaps.de/rex/</link></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>9</abbrev>
-			<author>
+		<bibliomixed><abbrev>9</abbrev><author>
 				<personname><surname>Candillon</surname>
 					<firstname>William </firstname></personname>
 			</author>: <title>JSONiq &amp; XQuery Quality Checker </title>. <bibliomisc><link
 					xl:href="JSONiq &amp; XQuery Quality Checker "/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>10</abbrev>
-			<author>
+		<bibliomixed><abbrev>10</abbrev><author>
 				<personname><surname>Kay</surname>
 					<firstname>Michael</firstname></personname>
 			</author>: <title>Saxon function-annotations</title>. <bibliomisc><link
 					xl:href="https://www.saxonica.com/html/documentation/functions/saxon/function-annotations.html"
 				/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>11</abbrev>
-			<title>MarkLogic annotations</title>. <bibliomisc><link
+		<bibliomixed><abbrev>11</abbrev><title>MarkLogic annotations</title>. <bibliomisc><link
 					xl:href="https://docs.marklogic.com/sc:annotations"/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>12</abbrev>
-			<author>
+		<bibliomixed><abbrev>12</abbrev><author>
 				<personname><surname>Grün</surname>
 					<firstname>Christian</firstname></personname>
 			</author>: <title>BaseX inspect:function-annotations</title>. <bibliomisc><link
 					xl:href="http://docs.basex.org/wiki/Inspection_Module#inspect:function-annotations"
 				/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>13</abbrev>
-			<authorgroup>
-				<author>
-					<personname><surname>Fuller</surname>
-						<firstname>James</firstname></personname>
-				</author>
-              <author>
-					<personname><surname>Snelson</surname>
-						<firstname>John</firstname></personname>
-				</author>
-			</authorgroup><title>xquerydoc</title>. <bibliomisc><link
+		<bibliomixed><abbrev>13</abbrev><author>
+				<personname><surname>Fuller</surname>
+					<firstname>James</firstname></personname>
+			</author><author>
+				<personname><surname>Snelson</surname>
+					<firstname>John</firstname></personname>
+			</author>: <title>xquerydoc</title>. <bibliomisc><link
 					xl:href="https://github.com/xquery/xquerydoc"/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>14</abbrev>
-			<author>
+		<bibliomixed><abbrev>14</abbrev><author>
 				<personname><surname>Meier</surname>
 					<firstname>Wolfgang</firstname></personname>
 			</author>: <title>xquery inspection</title>. <orgname>eXist-db</orgname>
 			<bibliomisc><link
 					xl:href="https://exist-db.org/exist/apps/fundocs/view.html?uri=http://exist-db.org/xquery/inspection"
 				/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>15</abbrev>
-			<author>
+		<bibliomixed><abbrev>15</abbrev><author>
 				<personname><surname>Meier</surname>
 					<firstname>Wolfgang</firstname></personname>
 			</author>: <title>docs:generate-xqdoc</title>. <orgname>eXist-db</orgname>
 			<bibliomisc><link
 					xl:href="http://exist-db.org/exist/apps/fundocs/view.html?uri=http://exist-db.org/xquery/docs&amp;location=/db/apps/fundocs/modules/scan.xql&amp;details=true"
 				/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>16</abbrev>
-			<author>
+		<bibliomixed><abbrev>16</abbrev><author>
 				<personname><surname>Grün</surname>
 					<firstname>Christian</firstname></personname>
 			</author>: <title>inspect:xqdoc</title>. <orgname>BaseX</orgname>
 			<bibliomisc><link xl:href="http://docs.basex.org/wiki/Inspection_Module#inspect:xqdoc"
 				/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>17</abbrev>
-			<author>
+		<bibliomixed><abbrev>17</abbrev><author>
 				<personname><surname>Cahlander</surname>
 					<firstname>Loren</firstname></personname>
 			</author>: <title> lcahlander/xqdoc </title>. <bibliomisc><link
 					xl:href="https://github.com/lcahlander/xqdoc"/></bibliomisc></bibliomixed>
-		<bibliomixed><abbrev>18</abbrev>
-			<author>
+		<bibliomixed><abbrev>18</abbrev><author>
 				<personname><surname>Bunce</surname>
 					<firstname>Andy</firstname></personname>
 			</author>:
